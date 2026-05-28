@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HeroVisual } from "@/components/HeroVisual";
 import { MailIcon } from "@/components/MailIcon";
+import { AtomLogo } from "@/components/AtomLogo";
 
 export default function Home() {
   return (
@@ -12,14 +13,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-white/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6 sm:py-5">
           <a href="#" className="flex items-center gap-3.5 sm:gap-4">
-            <Image
-              src="/logo.png"
-              alt="Himpower"
-              width={64}
-              height={64}
-              className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14"
-              priority
-            />
+            <AtomLogo size={56} className="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
             <span className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
               Himpower
             </span>
