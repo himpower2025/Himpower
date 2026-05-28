@@ -1,8 +1,9 @@
+// src/lib/firebase.ts
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore, doc, getDocFromServer } from "firebase/firestore";
 
-// Safe, fallback configuration to prevent compilation errors when json config files are missing in external environments like Vercel.
+// Vercel 환경 변수를 최우선으로 가져오고, 로컬 개발 시에만 안전한 기본 식별자(Public Fallback)를 사용합니다.
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyBoZYams0NPnz4PQwmo65lZjECskbYdUpw",
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "himpower-2b10b.firebaseapp.com",
@@ -17,13 +18,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Initialize Auth & Firestore
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId); /* CRITICAL: The app will break without this line */
+export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth(app);
 
 // Auth Providers
 export const googleProvider = new GoogleAuthProvider();
 
-// Error handling types as specified in Firebase Integration Skill
 export enum OperationType {
   CREATE = "create",
   UPDATE = "update",
@@ -82,7 +82,6 @@ async function testConnection() {
   }
 }
 
-// Only execute on browser environment
 if (typeof window !== "undefined") {
   testConnection();
 }
