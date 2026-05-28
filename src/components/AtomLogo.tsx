@@ -103,16 +103,8 @@ export function AtomLogo({ className = "", size = 56 }: AtomLogoProps) {
 
       {/* === Orbital rings === */}
 
-      {/* Orbit 1: horizontal ellipse */}
-      <ellipse
-        cx="50"
-        cy="50"
-        rx="44"
-        ry="17"
-        stroke="url(#orbit1Grad)"
-        strokeWidth="2"
-        filter="url(#glowSoft)"
-      >
+      {/* Orbit 1 Group: horizontal ellipse + rotating system */}
+      <g>
         <animateTransform
           attributeName="transform"
           type="rotate"
@@ -121,19 +113,25 @@ export function AtomLogo({ className = "", size = 56 }: AtomLogoProps) {
           dur="8s"
           repeatCount="indefinite"
         />
-      </ellipse>
+        <ellipse
+          cx="50"
+          cy="50"
+          rx="44"
+          ry="17"
+          stroke="url(#orbit1Grad)"
+          strokeWidth="2"
+          filter="url(#glowSoft)"
+        />
+        {/* Electron 1: rides orbit 1 */}
+        <circle cx="50" cy="50" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
+          <animateMotion dur="8s" repeatCount="indefinite">
+            <mpath href="#path-orbit1" />
+          </animateMotion>
+        </circle>
+      </g>
 
-      {/* Orbit 2: 60° tilted ellipse */}
-      <ellipse
-        cx="50"
-        cy="50"
-        rx="44"
-        ry="17"
-        stroke="url(#orbit2Grad)"
-        strokeWidth="2"
-        filter="url(#glowSoft)"
-        transform="rotate(60 50 50)"
-      >
+      {/* Orbit 2 Group: 60° tilted and rotating system */}
+      <g>
         <animateTransform
           attributeName="transform"
           type="rotate"
@@ -142,19 +140,25 @@ export function AtomLogo({ className = "", size = 56 }: AtomLogoProps) {
           dur="10s"
           repeatCount="indefinite"
         />
-      </ellipse>
+        <ellipse
+          cx="50"
+          cy="50"
+          rx="44"
+          ry="17"
+          stroke="url(#orbit2Grad)"
+          strokeWidth="2"
+          filter="url(#glowSoft)"
+        />
+        {/* Electron 2: rides orbit 2 */}
+        <circle cx="50" cy="50" r="4.2" fill="url(#electronGrad)" filter="url(#glowStrong)">
+          <animateMotion dur="10s" repeatCount="indefinite" begin="-3.3s">
+            <mpath href="#path-orbit2" />
+          </animateMotion>
+        </circle>
+      </g>
 
-      {/* Orbit 3: -60° tilted ellipse */}
-      <ellipse
-        cx="50"
-        cy="50"
-        rx="44"
-        ry="17"
-        stroke="url(#orbit3Grad)"
-        strokeWidth="2"
-        filter="url(#glowSoft)"
-        transform="rotate(-60 50 50)"
-      >
+      {/* Orbit 3 Group: -60° tilted and rotating system */}
+      <g>
         <animateTransform
           attributeName="transform"
           type="rotate"
@@ -163,7 +167,22 @@ export function AtomLogo({ className = "", size = 56 }: AtomLogoProps) {
           dur="12s"
           repeatCount="indefinite"
         />
-      </ellipse>
+        <ellipse
+          cx="50"
+          cy="50"
+          rx="44"
+          ry="17"
+          stroke="url(#orbit3Grad)"
+          strokeWidth="2"
+          filter="url(#glowSoft)"
+        />
+        {/* Electron 3: rides orbit 3 */}
+        <circle cx="50" cy="50" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
+          <animateMotion dur="12s" repeatCount="indefinite" begin="-4s">
+            <mpath href="#path-orbit3" />
+          </animateMotion>
+        </circle>
+      </g>
 
       {/* === Nucleus glow halo (pulsing via JS) === */}
       <circle
@@ -186,40 +205,11 @@ export function AtomLogo({ className = "", size = 56 }: AtomLogoProps) {
         opacity="0.95"
       />
 
-      {/* === Electron 1: rides orbit 1 === */}
-      <circle cx="50" cy="50" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
-        <animateMotion dur="8s" repeatCount="indefinite">
-          <mpath href="#path-orbit1" />
-        </animateMotion>
-      </circle>
-
-      {/* === Electron 2: rides orbit 2 === */}
-      <circle cx="50" cy="50" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
-        <animateMotion dur="10s" repeatCount="indefinite" begin="-3.3s">
-          <mpath href="#path-orbit2" />
-        </animateMotion>
-      </circle>
-
-      {/* === Electron 3: rides orbit 3 === */}
-      <circle cx="50" cy="50" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
-        <animateMotion dur="12s" repeatCount="indefinite" begin="-4s">
-          <mpath href="#path-orbit3" />
-        </animateMotion>
-      </circle>
-
-      {/* === Hidden motion paths for electrons === */}
+      {/* === Hidden motion paths for electrons (relative to rotating parent group coordinates) === */}
       <defs>
         <path id="path-orbit1" d="M 94,50 A 44,17 0 1 1 93.99,49.99" />
-        <path
-          id="path-orbit2"
-          d="M 94,50 A 44,17 0 1 1 93.99,49.99"
-          transform="rotate(60 50 50)"
-        />
-        <path
-          id="path-orbit3"
-          d="M 94,50 A 44,17 0 1 1 93.99,49.99"
-          transform="rotate(-60 50 50)"
-        />
+        <path id="path-orbit2" d="M 94,50 A 44,17 0 1 1 93.99,49.99" />
+        <path id="path-orbit3" d="M 94,50 A 44,17 0 1 1 93.99,49.99" />
       </defs>
     </svg>
   );

@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "inquiry": {
+      "title": "Inquiry",
+      "description": "User inquiry submitted from the contact form",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique ID of the inquiry"
+        },
+        "name": {
+          "type": "string",
+          "description": "The initiator's full name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The contact email address"
+        },
+        "message": {
+          "type": "string",
+          "description": "Message or details about the project"
+        },
+        "projectType": {
+          "type": "string",
+          "description": "The category of the project inquiry"
+        },
+        "budget": {
+          "type": "string",
+          "description": "Expected price range or budget tier"
+        },
+        "timeline": {
+          "type": "string",
+          "description": "Expected delivery timeline estimate"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "reviewed", "completed"],
+          "description": "Review status of this inquiry"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp indicating when the inquiry was created"
+        }
+      },
+      "required": ["name", "email", "message", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/inquiries/{inquiryId}": {
+      "schema": "inquiry",
+      "description": "Submitted project inquiries"
+    }
+  }
+}

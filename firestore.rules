@@ -1,0 +1,61 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global safety net: default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Administrators check using runtime email
+    function isAdmin() {
+      return isSignedIn() &&
+             request.auth.token.email == "himpower2025@gmail.com" &&
+             request.auth.token.email_verified == true;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidInquiry(data) {
+      return data.name is string && data.name.size() >= 1 && data.name.size() <= 200 &&
+             data.email is string && data.email.size() >= 3 && data.email.size() <= 200 &&
+             data.message is string && data.message.size() >= 1 && data.message.size() <= 5000 &&
+             (!('projectType' in data) || (data.projectType is string && data.projectType.size() <= 200)) &&
+             (!('budget' in data) || (data.budget is string && data.budget.size() <= 200)) &&
+             (!('timeline' in data) || (data.timeline is string && data.timeline.size() <= 200)) &&
+             data.status is string && (data.status == 'pending' || data.status == 'reviewed' || data.status == 'completed');
+    }
+
+    match /inquiries/{inquiryId} {
+      // Public creation under strict validations to protect against spam / structural modification
+      allow create: if isValidId(inquiryId) &&
+                       isValidInquiry(incoming()) &&
+                       incoming().status == 'pending' &&
+                       incoming().createdAt == request.time;
+
+      // Only administrators can read (retrieve all list collections or individual tickets)
+      allow read: if isAdmin();
+
+      // Only administrators can edit or delete
+      allow update: if isAdmin() &&
+                       isValidInquiry(incoming());
+
+      allow delete: if isAdmin();
+    }
+  }
+}

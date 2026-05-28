@@ -1,9 +1,14 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
 import { HeroVisual } from "@/components/HeroVisual";
 import { MailIcon } from "@/components/MailIcon";
 import { AtomLogo } from "@/components/AtomLogo";
+import { ContactForm } from "@/components/ContactForm";
+import { AdminInbox } from "@/components/AdminInbox";
 
 export default function Home() {
+  const [showAdminConsole, setShowAdminConsole] = useState(false);
   return (
     <div className="relative min-h-screen text-foreground">
       <div className="pointer-events-none absolute inset-0 opacity-60 grid-overlay" />
@@ -250,37 +255,73 @@ export default function Home() {
         </section>
 
         <section id="contact" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20">
-          <div className="relative overflow-hidden rounded-3xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 p-8 sm:p-12">
-            <div className="mesh-blob absolute -right-16 -top-16 h-56 w-56 bg-cyan-300/30" />
-            <div className="mesh-blob absolute -left-12 -bottom-16 h-56 w-56 bg-violet-300/25" />
-            <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl">
-                <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                  Turn ideas into products—fast.
-                </h2>
-                <p className="mt-4 text-sm leading-6 text-muted">
-                  Share a short overview, scope, timeline, and budget. We’ll respond
-                  within 1–2 business days with a proposed approach and execution
-                  plan.
-                </p>
+          <div className="relative overflow-hidden rounded-3xl border border-indigo-100 bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 p-6 sm:p-12">
+            <div className="mesh-blob absolute -right-16 -top-16 h-56 w-56 bg-cyan-300/20" />
+            <div className="mesh-blob absolute -left-12 -bottom-16 h-56 w-56 bg-violet-300/20" />
+
+            <div className="relative grid gap-10 lg:grid-cols-2 lg:items-start">
+              {/* Marketing copy & Info */}
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                    Turn ideas into products—fast.
+                  </h2>
+                  <p className="mt-4 text-base leading-7 text-muted">
+                    We specialize in high-tempo product design, system maintenance, and customized developer training. Share your project requirements and let&apos;s craft something remarkable together.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-100 bg-white/70 p-5 shadow-sm space-y-4">
+                  <h4 className="text-sm font-semibold text-slate-900">Contact Channels</h4>
+                  <div className="flex items-center gap-3">
+                    <a
+                      className="btn-primary inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition hover:scale-[1.03]"
+                      href="mailto:himpower2025@gmail.com"
+                      aria-label="Email Himpower"
+                      title="Email us directly"
+                    >
+                      <MailIcon className="h-5 w-5" />
+                    </a>
+                    <div>
+                      <span className="block text-xs font-semibold text-slate-800">Email us directly</span>
+                      <a href="mailto:himpower2025@gmail.com" className="text-xs text-indigo-650 hover:underline">
+                        himpower2025@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+                  <p className="text-xs text-slate-450 font-medium">
+                    Are you the owner? Open the secure cloud database console to track proposals:
+                  </p>
+                  <div>
+                    <button
+                      onClick={() => setShowAdminConsole((prev) => !prev)}
+                      className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition ${
+                        showAdminConsole
+                          ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow"
+                          : "bg-slate-100 hover:bg-slate-200 text-slate-750"
+                      }`}
+                    >
+                      {showAdminConsole ? "🔒 Clean Workspace" : "🔑 Open Admin Console"}
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-                <a
-                  className="btn-primary inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition hover:scale-[1.03]"
-                  href="mailto:himpower2025@gmail.com"
-                  aria-label="Email Himpower"
-                  title="Email us"
-                >
-                  <MailIcon className="h-5 w-5" />
-                </a>
-                <a
-                  className="btn-secondary inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-medium"
-                  href="#services"
-                >
-                  Request a services deck
-                </a>
+
+              {/* Form container */}
+              <div className="w-full">
+                <ContactForm />
               </div>
             </div>
+
+            {/* Admin console section */}
+            {showAdminConsole && (
+              <div className="relative mt-12 pt-8 border-t border-slate-200">
+                <AdminInbox />
+              </div>
+            )}
           </div>
         </section>
       </main>
