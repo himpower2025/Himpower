@@ -9,7 +9,7 @@ export function ContactForm() {
     name: "",
     email: "",
     projectType: "Web & mobile development",
-    budget: "$10k - $25k",
+    budget: "NPR 10k - NPR 25k",
     timeline: "1 - 3 months",
     message: "",
   });
@@ -63,7 +63,7 @@ export function ContactForm() {
         name: "",
         email: "",
         projectType: "Web & mobile development",
-        budget: "$10k - $25k",
+        budget: "NPR 10k - NPR 25k",
         timeline: "1 - 3 months",
         message: "",
       });
@@ -179,10 +179,10 @@ export function ContactForm() {
                 onChange={handleChange}
                 className="mt-1 w-full rounded-lg border border-slate-200/90 bg-white/50 px-3.5 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:bg-white"
               >
-                <option value="Under $10k">Under $10,000</option>
-                <option value="$10k - $25k">$10,000 - $25,000</option>
-                <option value="$25k - $50k">$25,000 - $50,000</option>
-                <option value="$50k+">$50,000+</option>
+                <option value="Under NPR 10k">Under NPR 10,000</option>
+                <option value="NPR 10k - NPR 25k">NPR 10,000 - NPR 25,000</option>
+                <option value="NPR 25k - NPR 50k">NPR 25,000 - NPR 50,000</option>
+                <option value="NPR 50k+">NPR 50,000+</option>
               </select>
             </div>
 
