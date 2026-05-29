@@ -89,7 +89,7 @@ export function BentoOverview({
   ];
 
   return (
-    <div className="w-full text-[#cbd5e1] select-none">
+    <div className="w-full text-[#cbd5e1]">
       {/* Outer Grid Wrapper - Custom restricted height on desktop to enforce non-scrolling bento layout */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12 lg:grid-rows-5 lg:h-[calc(100vh-140px)] lg:min-h-[580px] lg:max-h-[820px] auto-rows-auto">
         

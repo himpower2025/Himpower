@@ -17,6 +17,7 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [mailtoLink, setMailtoLink] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -58,7 +59,26 @@ export function ContactForm() {
       };
 
       await setDoc(doc(db, "inquiries", inquiryId), docData);
+
+      // Generate pre-populated mailto URL addressed to himpower2025@gmail.com
+      const mailtoSubject = `[Himpower Project Brief] From ${formData.name}`;
+      const mailtoBody = `Hello Himpower Team,\n\nI have submitted a new project brief through the website. Here are the details of my request:\n\n` +
+        `-----------------------------------------\n` +
+        `Client Name: ${formData.name}\n` +
+        `Email Address: ${formData.email}\n` +
+        `Service Required: ${formData.projectType}\n` +
+        `Estimated Budget: ${formData.budget}\n` +
+        `Desired Timeline: ${formData.timeline}\n` +
+        `-----------------------------------------\n\n` +
+        `Project Brief Details:\n` +
+        `${formData.message}\n\n` +
+        `-----------------------------------------\n` +
+        `This inquiry matches your secure database record (ID: ${inquiryId}).\n`;
+
+      const generatedMailto = `mailto:himpower2025@gmail.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+      setMailtoLink(generatedMailto);
       setSubmitStatus("success");
+
       setFormData({
         name: "",
         email: "",
@@ -67,6 +87,15 @@ export function ContactForm() {
         timeline: "1 - 3 months",
         message: "",
       });
+
+      // Automatically launch the mail client
+      try {
+        if (typeof window !== "undefined") {
+          window.location.href = generatedMailto;
+        }
+      } catch (err) {
+        console.warn("Mail client auto-open failed, showing email backup button", err);
+      }
     } catch (err) {
       setSubmitStatus("error");
       setErrorMessage("Failed to submit. Please try again or email us directly.");
@@ -87,21 +116,37 @@ export function ContactForm() {
     <div className="w-full rounded-2xl border border-indigo-100/80 bg-white/90 p-5 shadow-xl backdrop-blur-md sm:p-8">
       <h3 className="text-xl font-semibold text-slate-950">Send us a project brief</h3>
       <p className="mt-1.5 text-xs text-slate-500">
-        Filled details will be securely saved in your Firebase database.
+        Filled details will be securely saved in your Firebase database and sent to us.
       </p>
 
       {submitStatus === "success" && (
         <div className="mt-6 rounded-xl bg-emerald-50/90 p-4 border border-emerald-150 text-emerald-850">
-          <p className="text-sm font-semibold">🎉 Proposal Received!</p>
+          <p className="text-sm font-semibold">🎉 Proposal Received & Saved!</p>
           <p className="mt-1 text-xs leading-5">
-            Thank you for reaching out to Himpower. Your technical inquiry is stored securely in Firebase. We will review and reach out within 1 business day.
+            Thank you for reaching out to Himpower! Your project brief has been stored securely in the Firebase Database.
           </p>
-          <button
-            onClick={() => setSubmitStatus("idle")}
-            className="mt-3.5 rounded-lg bg-emerald-600 px-3.5 py-1.5 text-xs font-medium text-white hover:bg-emerald-700 transition"
-          >
-            Submit another brief
-          </button>
+          <p className="mt-2 text-xs leading-5">
+            We also opened your email composer automatically to send a copy to <strong>himpower2025@gmail.com</strong>. If your browser blocked it, click the button below:
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {mailtoLink && (
+              <a
+                href={mailtoLink}
+                className="inline-flex items-center gap-1.5 rounded-full bg-indigo-600 hover:bg-indigo-700 px-4 py-2 text-xs font-bold text-white transition shadow-md shadow-indigo-600/10 cursor-pointer"
+              >
+                ✉️ Send Email Copy
+              </a>
+            )}
+            <button
+              onClick={() => {
+                setSubmitStatus("idle");
+                setMailtoLink("");
+              }}
+              className="rounded-full border border-slate-350 bg-white hover:bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 transition cursor-pointer"
+            >
+              Submit another brief
+            </button>
+          </div>
         </div>
       )}
 
