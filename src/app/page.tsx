@@ -11,6 +11,7 @@ import { BentoOverview } from "@/components/BentoOverview";
 export default function Home() {
   const [showAdminConsole, setShowAdminConsole] = useState(false);
   const [viewMode, setViewMode] = useState<"overview" | "full">("overview");
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const handleViewModeChange = (mode: "overview" | "full") => {
     setViewMode(mode);
@@ -113,23 +114,22 @@ export default function Home() {
               </nav>
             )}
             
-            <a
-              href="#contact"
-              onClick={(e) => {
+            <button
+              onClick={() => {
                 if (viewMode === "overview") {
-                  e.preventDefault();
-                  const target = document.getElementById("bento-card-contact");
+                  setIsContactModalOpen(true);
+                } else {
+                  const target = document.getElementById("contact");
                   if (target) {
                     target.scrollIntoView({ behavior: "smooth" });
-                    target.classList.add("ring-2", "ring-indigo-600/60");
-                    setTimeout(() => target.classList.remove("ring-2", "ring-indigo-600/60"), 2000);
                   }
                 }
               }}
-              className="btn-primary rounded-full px-3.5 py-1.5 text-xs font-bold"
+              type="button"
+              className="btn-primary rounded-full px-3.5 py-1.5 text-xs font-bold cursor-pointer"
             >
               Start brief
-            </a>
+            </button>
           </div>
         </div>
       </header>
@@ -143,6 +143,8 @@ export default function Home() {
               onSwitchToFullView={() => handleViewModeChange("full")}
               showAdminConsole={showAdminConsole}
               setShowAdminConsole={setShowAdminConsole}
+              isContactModalOpen={isContactModalOpen}
+              setIsContactModalOpen={setIsContactModalOpen}
             />
             
             {/* Conditional admin console container */}
