@@ -122,9 +122,9 @@ export function AtomLogo({ className = "", size = 56 }: AtomLogoProps) {
           strokeWidth="2"
           filter="url(#glowSoft)"
         />
-        {/* Electron 1: rides orbit 1 */}
-        <circle cx="50" cy="50" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
-          <animateMotion dur="8s" repeatCount="indefinite">
+        {/* Electron 1: slides gracefully along orbit 1 */}
+        <circle cx="0" cy="0" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
+          <animateMotion dur="16s" repeatCount="indefinite">
             <mpath href="#path-orbit1" />
           </animateMotion>
         </circle>
@@ -149,9 +149,9 @@ export function AtomLogo({ className = "", size = 56 }: AtomLogoProps) {
           strokeWidth="2"
           filter="url(#glowSoft)"
         />
-        {/* Electron 2: rides orbit 2 */}
-        <circle cx="50" cy="50" r="4.2" fill="url(#electronGrad)" filter="url(#glowStrong)">
-          <animateMotion dur="10s" repeatCount="indefinite" begin="-3.3s">
+        {/* Electron 2: slides gracefully along orbit 2 */}
+        <circle cx="0" cy="0" r="4.2" fill="url(#electronGrad)" filter="url(#glowStrong)">
+          <animateMotion dur="20s" repeatCount="indefinite" begin="-5s">
             <mpath href="#path-orbit2" />
           </animateMotion>
         </circle>
@@ -176,9 +176,9 @@ export function AtomLogo({ className = "", size = 56 }: AtomLogoProps) {
           strokeWidth="2"
           filter="url(#glowSoft)"
         />
-        {/* Electron 3: rides orbit 3 */}
-        <circle cx="50" cy="50" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
-          <animateMotion dur="12s" repeatCount="indefinite" begin="-4s">
+        {/* Electron 3: slides gracefully along orbit 3 */}
+        <circle cx="0" cy="0" r="4.5" fill="url(#electronGrad)" filter="url(#glowStrong)">
+          <animateMotion dur="24s" repeatCount="indefinite" begin="-8s">
             <mpath href="#path-orbit3" />
           </animateMotion>
         </circle>
