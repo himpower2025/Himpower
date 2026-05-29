@@ -113,14 +113,14 @@ export function ContactForm() {
   };
 
   return (
-    <div className="w-full rounded-2xl border border-indigo-100/80 bg-white/90 p-5 shadow-xl backdrop-blur-md sm:p-8">
+    <div className="w-full rounded-2xl border border-indigo-100 bg-white p-5 shadow-xl sm:p-8 text-slate-900">
       <h3 className="text-xl font-semibold text-slate-950">Send us a project brief</h3>
       <p className="mt-1.5 text-xs text-slate-500">
         Filled details will be securely saved in your Firebase database and sent to us.
       </p>
 
       {submitStatus === "success" && (
-        <div className="mt-6 rounded-xl bg-emerald-50/90 p-4 border border-emerald-150 text-emerald-850">
+        <div className="mt-6 rounded-xl bg-emerald-50 p-4 border border-emerald-200 text-emerald-800">
           <p className="text-sm font-semibold">🎉 Proposal Received & Saved!</p>
           <p className="mt-1 text-xs leading-5">
             Thank you for reaching out to Himpower! Your project brief has been stored securely in the Firebase Database.
@@ -142,7 +142,7 @@ export function ContactForm() {
                 setSubmitStatus("idle");
                 setMailtoLink("");
               }}
-              className="rounded-full border border-slate-350 bg-white hover:bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 transition cursor-pointer"
+              className="rounded-full border border-slate-300 bg-white hover:bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 transition cursor-pointer"
             >
               Submit another brief
             </button>
@@ -160,7 +160,7 @@ export function ContactForm() {
       {submitStatus !== "success" && (
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>
-            <label htmlFor="name-input" className="block text-xs font-semibold text-slate-750">
+            <label htmlFor="name-input" className="block text-xs font-semibold text-slate-700">
               Your Name *
             </label>
             <input
@@ -171,13 +171,13 @@ export function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               placeholder="e.g. Minwoo Kim"
-              className="mt-1 w-full rounded-lg border border-slate-200/90 bg-white/50 px-3.5 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:bg-white"
+              className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
             />
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="email-input" className="block text-xs font-semibold text-slate-750">
+              <label htmlFor="email-input" className="block text-xs font-semibold text-slate-700">
                 Email Address *
               </label>
               <input
@@ -188,12 +188,12 @@ export function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="you@company.com"
-                className="mt-1 w-full rounded-lg border border-slate-200/90 bg-white/50 px-3.5 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:bg-white"
+                className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
               />
             </div>
 
             <div>
-              <label htmlFor="projectType-select" className="block text-xs font-semibold text-slate-750">
+              <label htmlFor="projectType-select" className="block text-xs font-semibold text-slate-700">
                 Service Required
               </label>
               <select
@@ -201,20 +201,20 @@ export function ContactForm() {
                 name="projectType"
                 value={formData.projectType}
                 onChange={handleChange}
-                className="mt-1 w-full rounded-lg border border-slate-200/90 bg-white/50 px-3.5 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:bg-white"
+                className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
               >
-                <option value="Web & mobile development">Web & Mobile Dev</option>
-                <option value="Maintenance & evolution">Maintenance & Evolution</option>
-                <option value="Delivery systems">Delivery & Operations Systems</option>
-                <option value="Education content">Education Content Creation</option>
-                <option value="Other">Other Custom Solutions</option>
+                <option value="Web & mobile development" className="text-slate-900 bg-white">Web & Mobile Dev</option>
+                <option value="Maintenance & evolution" className="text-slate-900 bg-white">Maintenance & Evolution</option>
+                <option value="Delivery systems" className="text-slate-900 bg-white">Delivery & Operations Systems</option>
+                <option value="Education content" className="text-slate-900 bg-white">Education Content Creation</option>
+                <option value="Other" className="text-slate-900 bg-white">Other Custom Solutions</option>
               </select>
             </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="budget-select" className="block text-xs font-semibold text-slate-750">
+              <label htmlFor="budget-select" className="block text-xs font-semibold text-slate-700">
                 Estimated Budget
               </label>
               <select
@@ -222,17 +222,17 @@ export function ContactForm() {
                 name="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                className="mt-1 w-full rounded-lg border border-slate-200/90 bg-white/50 px-3.5 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:bg-white"
+                className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
               >
-                <option value="Under NPR 10k">Under NPR 10,000</option>
-                <option value="NPR 10k - NPR 25k">NPR 10,000 - NPR 25,000</option>
-                <option value="NPR 25k - NPR 50k">NPR 25,000 - NPR 50,000</option>
-                <option value="NPR 50k+">NPR 50,000+</option>
+                <option value="Under NPR 10k" className="text-slate-900 bg-white">Under NPR 10,000</option>
+                <option value="NPR 10k - NPR 25k" className="text-slate-900 bg-white">NPR 10,000 - NPR 25,000</option>
+                <option value="NPR 25k - NPR 50k" className="text-slate-900 bg-white">NPR 25,000 - NPR 50,000</option>
+                <option value="NPR 50k+" className="text-slate-900 bg-white">NPR 50,000+</option>
               </select>
             </div>
 
             <div>
-              <label htmlFor="timeline-select" className="block text-xs font-semibold text-slate-750">
+              <label htmlFor="timeline-select" className="block text-xs font-semibold text-slate-700">
                 Desired Timeline
               </label>
               <select
@@ -240,18 +240,18 @@ export function ContactForm() {
                 name="timeline"
                 value={formData.timeline}
                 onChange={handleChange}
-                className="mt-1 w-full rounded-lg border border-slate-200/90 bg-white/50 px-3.5 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:bg-white"
+                className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
               >
-                <option value="Less than 1 month">Rapid Prototype (&lt; 1 mo)</option>
-                <option value="1 - 3 months">Standard MVP (1 - 3 mos)</option>
-                <option value="3 - 6 months">Enterprise Scale (3 - 6 mos)</option>
-                <option value="Ongoing">Long Term retainer / Ongoing</option>
+                <option value="Less than 1 month" className="text-slate-900 bg-white">Rapid Prototype (&lt; 1 mo)</option>
+                <option value="1 - 3 months" className="text-slate-900 bg-white">Standard MVP (1 - 3 mos)</option>
+                <option value="3 - 6 months" className="text-slate-900 bg-white">Enterprise Scale (3 - 6 mos)</option>
+                <option value="Ongoing" className="text-slate-900 bg-white">Long Term retainer / Ongoing</option>
               </select>
             </div>
           </div>
 
           <div>
-            <label htmlFor="message-textarea" className="block text-xs font-semibold text-slate-750">
+            <label htmlFor="message-textarea" className="block text-xs font-semibold text-slate-700">
               Project Brief *
             </label>
             <textarea
@@ -262,7 +262,7 @@ export function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell us about your product goals, targeted users, and features..."
-              className="mt-1 w-full rounded-lg border border-slate-200/90 bg-white/50 px-3.5 py-2.5 text-sm outline-none transition focus:border-indigo-500 focus:bg-white"
+              className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
             />
           </div>
 
