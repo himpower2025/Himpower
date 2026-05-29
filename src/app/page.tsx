@@ -13,14 +13,23 @@ export default function Home() {
   const [viewMode, setViewMode] = useState<"overview" | "full">("overview");
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
-  const handleViewModeChange = (mode: "overview" | "full") => {
+  const handleViewModeChange = (mode: "overview" | "full", sectionId?: string) => {
     setViewMode(mode);
-    try {
-      if (typeof window !== "undefined" && typeof window.scrollTo === "function") {
-        window.scrollTo({ top: 0, left: 0 });
+    if (mode === "full" && sectionId) {
+      setTimeout(() => {
+        const target = document.getElementById(sectionId);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    } else {
+      try {
+        if (typeof window !== "undefined" && typeof window.scrollTo === "function") {
+          window.scrollTo({ top: 0, left: 0 });
+        }
+      } catch (e) {
+        console.warn("Smooth scroll skipped:", e);
       }
-    } catch (e) {
-      console.warn("Smooth scroll skipped:", e);
     }
   };
 
@@ -140,7 +149,7 @@ export default function Home() {
           /* Bento Dashboard View */
           <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-12">
             <BentoOverview
-              onSwitchToFullView={() => handleViewModeChange("full")}
+              onSwitchToFullView={(sectionId) => handleViewModeChange("full", sectionId)}
               showAdminConsole={showAdminConsole}
               setShowAdminConsole={setShowAdminConsole}
               isContactModalOpen={isContactModalOpen}

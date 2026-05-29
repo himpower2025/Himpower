@@ -6,7 +6,7 @@ import { ContactForm } from "./ContactForm";
 import { MailIcon } from "./MailIcon";
 
 interface BentoOverviewProps {
-  onSwitchToFullView: () => void;
+  onSwitchToFullView: (sectionId?: string) => void;
   showAdminConsole: boolean;
   setShowAdminConsole: React.Dispatch<React.SetStateAction<boolean>>;
   isContactModalOpen: boolean;
@@ -54,30 +54,26 @@ export function BentoOverview({
     {
       id: 1,
       title: "Web & Mobile Dev",
-      short: "From initial product goals to deep system architecture.",
-      details: "Building responsive, lightning-fast digital pipelines using React, Next.js, and multi-platform mobile technologies like Flutter with high focus on tactile responsiveness.",
-      deliverable: "Next.js · Flutter"
+      coreSentence: "Building high-performance Next.js systems and tactile responsive Flutter mobile apps.",
+      tag: "Next.js · Flutter"
     },
     {
       id: 2,
-      title: "Maintenance & Evolution",
-      short: "Continuous bug fixes, speed alignments, and upgrades.",
-      details: "We study server workloads, handle database queries optimization, repair visual bugs, and write backward-compatible code refactoring that keeps your service fluid.",
-      deliverable: "SLA Support · Tuning"
+      title: "SLA & Performance",
+      coreSentence: "Continuous speed tuning, database query optimization, and secure backward-compatible code support.",
+      tag: "Tuning · Support"
     },
     {
       id: 3,
       title: "Smart Delivery Systems",
-      short: "Workflows that boost engineering speed & precision.",
-      details: "We establish automated deployments, version tagging, test coverage tracking, and standardized setups so your team can deploy 10x faster with 0% cognitive friction.",
-      deliverable: "CI/CD · Automations"
+      coreSentence: "Deploying automated pipelines, rigorous telemetry coverage, and 0% friction engineering workflows.",
+      tag: "CI/CD · Automation"
     },
     {
       id: 4,
-      title: "Education Content",
-      short: "Curated hands-on developer training & workshops.",
-      details: "We construct and deliver custom coding manuals, code labs, video workshops, and assessment criteria tailored for modern tech teams or academic institutions.",
-      deliverable: "Curriculums · Labs"
+      title: "Developer Education",
+      coreSentence: "Structured coding manuals and assessment criteria tailored for modern tech teams.",
+      tag: "Curriculum · Labs"
     }
   ];
 
@@ -136,11 +132,20 @@ export function BentoOverview({
         </div>
 
         {/* CARD 3: Unified Services Directory */}
-        <div id="bento-card-services" className="relative flex flex-col justify-between rounded-3xl border border-slate-800/80 bg-slate-900/95 p-4.5 shadow-2xl backdrop-blur-md lg:col-span-4 lg:row-span-3 h-full">
+        <div 
+          id="bento-card-services" 
+          onClick={() => onSwitchToFullView("services")}
+          className="group relative flex flex-col justify-between rounded-3xl border border-slate-800/80 bg-slate-900/95 p-4.5 shadow-2xl backdrop-blur-md lg:col-span-4 lg:row-span-3 h-full cursor-pointer hover:border-indigo-500/40 transition-all duration-300"
+        >
           <div className="space-y-3">
-            <div>
-              <div className="text-[9px] font-bold text-indigo-400 tracking-wider uppercase">Services Catalog</div>
-              <h3 className="mt-0.5 text-base font-bold text-white">Interactive Capabilities</h3>
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-[9px] font-bold text-indigo-400 tracking-wider uppercase">Services Catalog</div>
+                <h3 className="mt-0.5 text-base font-bold text-white">Core Capabilities</h3>
+              </div>
+              <span className="rounded-full bg-indigo-950/45 text-indigo-450 px-2 py-0.5 text-[9px] font-mono border border-indigo-900/30 group-hover:bg-indigo-900 group-hover:text-white transition duration-250">
+                전체보기 ↗
+              </span>
             </div>
 
             <div className="space-y-2">
@@ -149,26 +154,26 @@ export function BentoOverview({
                   key={item.id}
                   onMouseEnter={() => setHoveredService(idx)}
                   onMouseLeave={() => setHoveredService(null)}
-                  className={`rounded-2xl border p-2.5 transition-all duration-200 cursor-pointer ${
+                  className={`rounded-2xl border p-2.5 transition-all duration-200 ${
                     hoveredService === idx 
-                      ? "border-indigo-500 bg-indigo-950/40 translate-x-1" 
-                      : "border-slate-800/60 bg-slate-900/40"
+                      ? "border-indigo-500/50 bg-indigo-950/20 translate-x-1" 
+                      : "border-slate-800/40 bg-slate-900/30"
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-white">{item.title}</span>
-                    <span className="text-[9px] font-mono text-cyan-400">{item.deliverable.split(" ")[0]}</span>
+                    <span className="text-xs font-bold text-white group-hover:text-indigo-300 transition duration-150">{item.title}</span>
+                    <span className="text-[9px] font-mono text-cyan-400">{item.tag.split(" ")[0]}</span>
                   </div>
-                  <p className="mt-0.5 text-[10px] leading-snug text-slate-400">
-                    {hoveredService === idx ? item.details : item.short}
+                  <p className="mt-1 text-[10px] leading-relaxed text-slate-400">
+                    {item.coreSentence}
                   </p>
                 </div>
               ))}
             </div>
           </div>
           
-          <div className="pt-2 border-t border-slate-800 text-center text-[9px] text-slate-500">
-            Hover elements to inspect detailed scope
+          <div className="pt-2 border-t border-slate-800 text-center text-[9px] text-slate-500 group-hover:text-slate-300 transition">
+            Click any service above to read detailed reports
           </div>
         </div>
 
@@ -180,9 +185,12 @@ export function BentoOverview({
                 <div className="text-[9px] font-bold text-cyan-400 tracking-wider uppercase">Our Framework</div>
                 <h3 className="mt-0.5 text-base font-bold text-white">Unified Delivery Pipeline (UDP)</h3>
               </div>
-              <span className="rounded-full bg-cyan-950/60 text-cyan-400 border border-cyan-900/50 px-2 py-0.5 text-[9px] font-mono">
-                Click steps
-              </span>
+              <button 
+                onClick={() => onSwitchToFullView("process")}
+                className="rounded-full bg-cyan-950/60 text-cyan-400 border border-cyan-900/50 px-2 py-0.5 text-[9px] font-mono hover:bg-cyan-900 hover:text-white transition cursor-pointer"
+              >
+                상세보기 ↗
+              </button>
             </div>
 
             {/* Horizontal Timeline Controls */}
@@ -219,17 +227,26 @@ export function BentoOverview({
         </div>
 
         {/* CARD 5: Learning & Technical Labs */}
-        <div id="bento-card-labs" className="relative flex flex-col justify-between rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-4.5 shadow-2xl backdrop-blur-md md:col-span-2 lg:col-span-3 lg:row-span-2 h-full">
+        <div 
+          id="bento-card-labs" 
+          onClick={() => onSwitchToFullView("education")}
+          className="group relative flex flex-col justify-between rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-4.5 shadow-2xl backdrop-blur-md md:col-span-2 lg:col-span-3 lg:row-span-2 h-full cursor-pointer hover:border-violet-500/40 transition-all duration-300"
+        >
           <div className="space-y-3">
-            <div>
-              <div className="text-[9px] font-bold text-violet-400 tracking-wider uppercase">Instructional Lab</div>
-              <h3 className="mt-0.5 text-base font-bold text-white">Custom Curriculum</h3>
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-[9px] font-bold text-violet-400 tracking-wider uppercase font-sans">Instructional Lab</div>
+                <h3 className="mt-0.5 text-base font-bold text-white font-sans">Custom Curriculum</h3>
+              </div>
+              <span className="rounded-full bg-violet-950/65 text-violet-450 border border-violet-900/40 px-2 py-0.5 text-[9px] font-mono group-hover:bg-violet-900 group-hover:text-white transition duration-250">
+                훈련보기 ↗
+              </span>
             </div>
 
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 flex-grow">
               {curriculumPoints.map((item, idx) => (
-                <div key={idx} className="group rounded-xl bg-slate-950/45 p-2 border border-slate-800/50 hover:border-violet-950 transition duration-200">
-                  <div className="text-[11px] font-semibold text-white group-hover:text-violet-300 transition duration-150">{item.name}</div>
+                <div key={idx} className="group rounded-xl bg-slate-950/45 p-2 border border-slate-800/50 hover:border-violet-950/80 transition duration-200">
+                  <div className="text-[11.5px] font-semibold text-white group-hover:text-violet-300 transition duration-150">{item.name}</div>
                   <div className="mt-0.5 text-[9px] text-slate-500 leading-none">{item.info}</div>
                 </div>
               ))}
@@ -284,7 +301,7 @@ export function BentoOverview({
             {showAdminConsole ? "🔒 Hide Console" : "🔑 Admin Console"}
           </button>
           <button
-            onClick={onSwitchToFullView}
+            onClick={() => onSwitchToFullView()}
             type="button"
             className="rounded-full bg-indigo-600 hover:bg-indigo-700 px-4 py-1.5 text-[10px] font-bold text-white transition shadow-md shadow-indigo-600/10 shrink-0 cursor-pointer"
           >
