@@ -6,99 +6,211 @@ import { MailIcon } from "@/components/MailIcon";
 import { AtomLogo } from "@/components/AtomLogo";
 import { ContactForm } from "@/components/ContactForm";
 import { AdminInbox } from "@/components/AdminInbox";
+import { BentoOverview } from "@/components/BentoOverview";
 
 export default function Home() {
   const [showAdminConsole, setShowAdminConsole] = useState(false);
-  return (
-    <div className="relative min-h-screen text-foreground">
-      <div className="pointer-events-none absolute inset-0 opacity-60 grid-overlay" />
-      <div className="mesh-blob absolute left-[10%] top-24 h-64 w-64 bg-indigo-300/25" />
-      <div className="mesh-blob absolute right-[5%] top-40 h-56 w-56 bg-cyan-300/20" />
+  const [viewMode, setViewMode] = useState<"overview" | "full">("overview");
 
-      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-white/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6 sm:py-5">
-          <a href="#" className="flex items-center gap-3.5 sm:gap-4">
-            <AtomLogo size={56} className="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
-            <span className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
-              Himpower
-            </span>
-          </a>
-          <nav className="hidden items-center gap-6 text-sm text-muted md:flex">
-            <a className="transition hover:text-foreground" href="#services">
-              Services
+  const handleViewModeChange = (mode: "overview" | "full") => {
+    setViewMode(mode);
+    try {
+      if (typeof window !== "undefined" && typeof window.scrollTo === "function") {
+        window.scrollTo({ top: 0, left: 0 });
+      }
+    } catch (e) {
+      console.warn("Smooth scroll skipped:", e);
+    }
+  };
+
+  return (
+    <div className={`relative min-h-screen transition-colors duration-500 overflow-x-hidden ${
+      viewMode === "overview"
+        ? "bg-[#080d16] text-slate-300"
+        : "bg-background text-foreground"
+    }`}>
+      {/* Decorative Overlays - explicitly back-tiered via z-[-10] to ensure absolutely no touch/click interference */}
+      <div className={`pointer-events-none absolute inset-0 z-[-10] opacity-60 grid-overlay ${
+        viewMode === "overview" ? "opacity-35" : ""
+      }`} />
+      
+      {/* Floating Blobs (Adapted opacity/colors depending on view mode) - explicitly z-[-10] */}
+      <div className={`mesh-blob absolute left-[10%] top-24 h-64 w-64 z-[-10] transition-all duration-700 pointer-events-none ${
+        viewMode === "overview" ? "bg-indigo-500/10 blur-3xl opacity-40" : "bg-indigo-300/25 blur-[60px]"
+      }`} />
+      <div className={`mesh-blob absolute right-[5%] top-40 h-56 w-56 z-[-10] transition-all duration-700 pointer-events-none ${
+        viewMode === "overview" ? "bg-cyan-500/10 blur-3xl opacity-30" : "bg-cyan-300/20 blur-[60px]"
+      }`} />
+
+      {/* HEADER: Responsive layout supporting Bento and traditional views */}
+      <header className={`sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-500 ${
+        viewMode === "overview"
+          ? "border-slate-900 bg-[#080d16]/85 text-white"
+          : "border-[var(--border)] bg-white/70 text-slate-900"
+      }`}>
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+          
+          {/* Brand Logo & Switch Block */}
+          <div className="flex items-center gap-2 sm:gap-6">
+            <a href="#" className="flex items-center gap-2 shrink-0">
+              <AtomLogo size={38} className="h-8 w-8 shrink-0 sm:h-11 sm:w-11" />
+              <span className={`text-base font-bold tracking-tight sm:text-xl transition-colors hidden sm:inline-block ${
+                viewMode === "overview" ? "text-white" : "text-slate-900"
+              }`}>
+                Himpower
+              </span>
             </a>
-            <a className="transition hover:text-foreground" href="#process">
-              Process
+
+            {/* Toggle Switch Capsules */}
+            <div className={`relative z-50 flex items-center gap-0.5 rounded-full p-0.5 border ${
+              viewMode === "overview"
+                ? "bg-slate-950 border-slate-800"
+                : "bg-slate-100/80 border-slate-200/60"
+            }`}>
+              <button
+                onClick={() => handleViewModeChange("overview")}
+                type="button"
+                className={`rounded-full px-3 py-1.5 text-xs font-bold tracking-wide transition-all duration-200 cursor-pointer ${
+                  viewMode === "overview"
+                    ? "bg-indigo-600 text-white shadow-sm"
+                    : "text-slate-500 hover:text-slate-950"
+                }`}
+              >
+                Overview
+              </button>
+              <button
+                onClick={() => handleViewModeChange("full")}
+                type="button"
+                className={`rounded-full px-3 py-1.5 text-xs font-bold tracking-wide transition-all duration-200 cursor-pointer ${
+                  viewMode === "full"
+                    ? "bg-indigo-600 text-white shadow-sm"
+                    : viewMode === "overview"
+                      ? "text-slate-400 hover:text-slate-100"
+                      : "text-slate-500 hover:text-slate-900"
+                }`}
+              >
+                Full view
+              </button>
+            </div>
+          </div>
+
+          {/* Call-to-action & standard navigation */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            {viewMode === "full" && (
+              <nav className="hidden items-center gap-5 text-xs font-bold text-slate-500 md:flex">
+                <a className="transition hover:text-slate-900" href="#services">
+                  Services
+                </a>
+                <a className="transition hover:text-slate-900" href="#process">
+                  Process
+                </a>
+                <a className="transition hover:text-slate-900" href="#education">
+                  Education
+                </a>
+                <a className="transition hover:text-slate-900" href="#contact">
+                  Contact
+                </a>
+              </nav>
+            )}
+            
+            <a
+              href="#contact"
+              onClick={(e) => {
+                if (viewMode === "overview") {
+                  e.preventDefault();
+                  const target = document.getElementById("bento-card-contact");
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                    target.classList.add("ring-2", "ring-indigo-600/60");
+                    setTimeout(() => target.classList.remove("ring-2", "ring-indigo-600/60"), 2000);
+                  }
+                }
+              }}
+              className="btn-primary rounded-full px-3.5 py-1.5 text-xs font-bold"
+            >
+              Start brief
             </a>
-            <a className="transition hover:text-foreground" href="#education">
-              Education
-            </a>
-            <a className="transition hover:text-foreground" href="#contact">
-              Contact
-            </a>
-          </nav>
-          <a href="#contact" className="btn-primary rounded-full px-4 py-2 text-sm font-medium">
-            Start a project
-          </a>
+          </div>
         </div>
       </header>
 
-      <main>
-        <section className="relative overflow-hidden">
-          <div className="mx-auto max-w-6xl px-5 pt-16 pb-14 sm:px-6 sm:pt-24">
-            <div className="glass rounded-3xl p-7 sm:p-10">
-              <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-                <div className="max-w-2xl">
-                  <div className="badge inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400" />
-                    Product engineering studio
-                  </div>
-                  <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-                    Craft{" "}
-                    <span className="text-gradient">web & mobile</span> experiences
-                    that feel ahead of their time.
-                  </h1>
-                  <p className="mt-5 max-w-xl text-pretty text-base leading-7 text-muted sm:text-lg">
-                    We design, build, and maintain digital products—and create
-                    training content that teams actually use. Precision
-                    engineering, thoughtful UX, and a delivery rhythm built for
-                    momentum.
-                  </p>
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                    <a
-                      href="#contact"
-                      className="btn-primary inline-flex h-12 items-center justify-center rounded-full px-5 text-sm font-medium"
-                    >
-                      Talk to us
-                    </a>
-                    <a
-                      href="#services"
-                      className="btn-secondary inline-flex h-12 items-center justify-center rounded-full px-5 text-sm font-medium"
-                    >
-                      Explore services
-                    </a>
-                  </div>
-                  <div className="mt-8 flex flex-wrap gap-2 text-xs">
-                    {[
-                      "Product Engineering",
-                      "Smart Delivery",
-                      "Maintenance",
-                      "Education",
-                    ].map((tag) => (
-                      <span key={tag} className="badge rounded-full px-3 py-1">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+      {/* MAIN VIEW AREA: Switches content depending on state */}
+      <main className="relative z-10">
+        {viewMode === "overview" ? (
+          /* Bento Dashboard View */
+          <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-12">
+            <BentoOverview
+              onSwitchToFullView={() => handleViewModeChange("full")}
+              showAdminConsole={showAdminConsole}
+              setShowAdminConsole={setShowAdminConsole}
+            />
+            
+            {/* Conditional admin console container */}
+            {showAdminConsole && (
+              <div className="mt-8 rounded-3xl border border-slate-800 bg-[#0c1220]/90 p-5 shadow-2xl">
+                <AdminInbox />
+              </div>
+            )}
+          </div>
+        ) : (
+          /* Original Long Scroll View */
+          <>
+            <section className="relative overflow-hidden">
+              <div className="mx-auto max-w-6xl px-5 pt-16 pb-14 sm:px-6 sm:pt-24">
+                <div className="glass rounded-3xl p-7 sm:p-10">
+                  <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+                    <div className="max-w-2xl">
+                      <div className="badge inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
+                        <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400" />
+                        Product engineering studio
+                      </div>
+                      <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+                        Craft{" "}
+                        <span className="text-gradient">web & mobile</span> experiences
+                        that feel ahead of their time.
+                      </h1>
+                      <p className="mt-5 max-w-xl text-pretty text-base leading-7 text-muted sm:text-lg">
+                        We design, build, and maintain digital products—and create
+                        training content that teams actually use. Precision
+                        engineering, thoughtful UX, and a delivery rhythm built for
+                        momentum.
+                      </p>
+                      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                        <a
+                          href="#contact"
+                          className="btn-primary inline-flex h-12 items-center justify-center rounded-full px-5 text-sm font-medium"
+                        >
+                          Talk to us
+                        </a>
+                        <a
+                          href="#services"
+                          className="btn-secondary inline-flex h-12 items-center justify-center rounded-full px-5 text-sm font-medium"
+                        >
+                          Explore services
+                        </a>
+                      </div>
+                      <div className="mt-8 flex flex-wrap gap-2 text-xs">
+                        {[
+                          "Product Engineering",
+                          "Smart Delivery",
+                          "Maintenance",
+                          "Education",
+                        ].map((tag) => (
+                          <span key={tag} className="badge rounded-full px-3 py-1">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-                <div className="relative w-full lg:max-w-md">
-                  <HeroVisual />
+                    <div className="relative w-full lg:max-w-md">
+                      <HeroVisual />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+
 
         <section id="services" className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-16">
           <div className="flex items-end justify-between gap-6">
@@ -324,27 +436,37 @@ export default function Home() {
             )}
           </div>
         </section>
+          </>
+        )}
       </main>
 
-      <footer className="border-t border-[var(--border)] bg-white/50">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-10 text-sm text-muted sm:px-6 md:flex-row md:items-center md:justify-between">
+      <footer className={`border-t transition-all duration-500 ${
+        viewMode === "overview"
+          ? "border-slate-900 bg-slate-950/45 text-slate-400"
+          : "border-[var(--border)] bg-white/50 text-muted"
+      }`}>
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-10 text-sm sm:px-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <div className="font-medium text-slate-800">Himpower</div>
+            <div className={`font-medium transition-colors ${
+              viewMode === "overview" ? "text-white" : "text-slate-800"
+            }`}>
+              Himpower
+            </div>
             <div className="mt-1 text-xs">
               Web & mobile engineering · maintenance · education
             </div>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs">
-            <a className="transition hover:text-foreground" href="#services">
+            <a className={`transition ${viewMode === "overview" ? "hover:text-white text-slate-400" : "hover:text-foreground text-muted"}`} href="#services">
               Services
             </a>
-            <a className="transition hover:text-foreground" href="#process">
+            <a className={`transition ${viewMode === "overview" ? "hover:text-white text-slate-400" : "hover:text-foreground text-muted"}`} href="#process">
               Process
             </a>
-            <a className="transition hover:text-foreground" href="#education">
+            <a className={`transition ${viewMode === "overview" ? "hover:text-white text-slate-400" : "hover:text-foreground text-muted"}`} href="#education">
               Education
             </a>
-            <a className="transition hover:text-foreground" href="#contact">
+            <a className={`transition ${viewMode === "overview" ? "hover:text-white text-slate-400" : "hover:text-foreground text-muted"}`} href="#contact">
               Contact
             </a>
           </div>
