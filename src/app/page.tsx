@@ -58,7 +58,7 @@ export default function Home() {
           ? "border-slate-900 bg-[#080d16]/85 text-white"
           : "border-[var(--border)] bg-white/70 text-slate-900"
       }`}>
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 sm:px-6">
           
           {/* Brand Logo & Switch Block */}
           <div className="flex items-center gap-2 sm:gap-6">
@@ -147,7 +147,7 @@ export default function Home() {
       <main className="relative z-10">
         {viewMode === "overview" ? (
           /* Bento Dashboard View */
-          <div className="mx-auto max-w-6xl px-5 py-8 sm:px-6 sm:py-12">
+          <div className="mx-auto max-w-[1400px] px-4 py-3 sm:px-6 sm:py-4">
             <BentoOverview
               onSwitchToFullView={(sectionId) => handleViewModeChange("full", sectionId)}
               showAdminConsole={showAdminConsole}
@@ -167,10 +167,10 @@ export default function Home() {
           /* Original Long Scroll View */
           <>
             <section className="relative overflow-hidden">
-              <div className="mx-auto max-w-6xl px-5 pt-16 pb-14 sm:px-6 sm:pt-24">
+              <div className="mx-auto max-w-[1400px] px-5 pt-16 pb-14 sm:px-6 sm:pt-24">
                 <div className="glass rounded-3xl p-7 sm:p-10">
                   <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-                    <div className="max-w-2xl">
+                    <div className="max-w-3xl">
                       <div className="badge inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
                         <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400" />
                         Product engineering studio
@@ -223,7 +223,7 @@ export default function Home() {
             </section>
 
 
-        <section id="services" className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-16">
+        <section id="services" className="mx-auto max-w-[1400px] px-5 py-12 sm:px-6 sm:py-16">
           <div className="flex items-end justify-between gap-6">
             <div>
               <div className="text-sm font-medium text-indigo-600">What we do</div>
@@ -284,7 +284,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="process" className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-16">
+        <section id="process" className="mx-auto max-w-[1400px] px-5 py-12 sm:px-6 sm:py-16">
           <div className="surface-panel rounded-3xl p-7 sm:p-10">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
               <div className="max-w-xl">
@@ -337,7 +337,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="education" className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-16">
+        <section id="education" className="mx-auto max-w-[1400px] px-5 py-12 sm:px-6 sm:py-16">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
               <div className="text-sm font-medium text-violet-600">Education</div>
@@ -377,7 +377,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20">
+        <section id="contact" className="mx-auto max-w-[1400px] px-5 py-14 sm:px-6 sm:py-20">
           <div className="relative overflow-hidden rounded-3xl border border-indigo-100 bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 p-6 sm:p-12">
             <div className="mesh-blob absolute -right-16 -top-16 h-56 w-56 bg-cyan-300/20" />
             <div className="mesh-blob absolute -left-12 -bottom-16 h-56 w-56 bg-violet-300/20" />
@@ -456,7 +456,7 @@ export default function Home() {
           ? "border-slate-900 bg-slate-950/45 text-slate-400"
           : "border-[var(--border)] bg-white/50 text-muted"
       }`}>
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-10 text-sm sm:px-6 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-5 py-10 text-sm sm:px-6 md:flex-row md:items-center md:justify-between">
           <div>
             <div className={`font-medium transition-colors ${
               viewMode === "overview" ? "text-white" : "text-slate-800"
