@@ -90,28 +90,28 @@ export function BentoOverview({
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12 auto-rows-auto bento-grid-fluid">
         
         {/* CARD 1: Brand & Value Proposition (Hero representation) */}
-        <div id="bento-card-hero" className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-indigo-950/40 bg-slate-950/80 p-6 shadow-2xl backdrop-blur-md md:p-8 lg:p-9 md:col-span-2 lg:col-span-8 lg:row-span-2 h-full">
+        <div id="bento-card-hero" className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-indigo-950/40 bg-slate-950/80 p-5 sm:p-6 md:p-8 lg:p-4.5 xl:p-6 2xl:p-8 shadow-2xl backdrop-blur-md md:col-span-2 lg:col-span-8 lg:row-span-2 h-full">
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
           <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
           
-          <div className="relative space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-indigo-900/40 bg-indigo-950/50 px-3.5 py-1.5 text-xs sm:text-sm text-indigo-400">
+          <div className="relative space-y-3 sm:space-y-4 lg:space-y-1.5 xl:space-y-3.5 2xl:space-y-4">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-indigo-900/40 bg-indigo-950/50 px-2.5 py-1 text-xs lg:text-[10px] xl:text-xs 2xl:text-sm text-indigo-400">
               <span className="h-1.5 w-1.5 rounded-full bg-[#06b6d4] animate-pulse" />
               Product Engineering Studio
             </div>
             
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h2 className="text-xl xs:text-2xl sm:text-4xl lg:text-[21px] xl:text-3xl 2xl:text-4xl font-extrabold tracking-tight text-white leading-tight">
               Craft <span className="bg-gradient-to-r from-indigo-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">experiences</span> that feel ahead of their time.
             </h2>
             
-            <p className="max-w-3xl text-xs sm:text-sm lg:text-[13px] xl:text-[14px] 2xl:text-base leading-relaxed text-slate-300 font-normal">
+            <p className="max-w-3xl text-xs sm:text-sm lg:text-[11px] xl:text-[13px] 2xl:text-base leading-relaxed text-slate-300 font-normal">
               Himpower designs, develops, and maintains digital platforms—and writes practical education courses that teams actually use. We combine speed, UX elegance, and architectural security to keep products growing.
             </p>
           </div>
 
-          <div className="relative mt-4 flex flex-wrap gap-2.5">
+          <div className="relative mt-3 lg:mt-2 xl:mt-3.5 2xl:mt-4 flex flex-wrap gap-1.5 sm:gap-2.5 lg:gap-1.5 xl:gap-2 2xl:gap-2.5">
             {["Next.js Systems", "Mobile", "DB Optimization", "SRE Readiness", "Maintenance"].map((tag) => (
-              <span key={tag} className="rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1.5 text-xs font-semibold text-slate-300 shadow-inner">
+              <span key={tag} className="rounded-full border border-slate-800 bg-slate-900/70 px-2 py-1 text-[10px] sm:px-3 sm:py-1.5 sm:text-xs lg:px-2 lg:py-1 lg:text-[10px] xl:px-2.5 xl:py-1 xl:text-xs 2xl:px-3 2xl:py-1.5 2xl:text-xs font-semibold text-slate-300 shadow-inner whitespace-nowrap">
                 {tag}
               </span>
             ))}
@@ -135,26 +135,26 @@ export function BentoOverview({
         <div 
           id="bento-card-services" 
           onClick={() => onSwitchToFullView("services")}
-          className="group relative flex flex-col justify-between rounded-3xl border border-slate-800/80 bg-slate-900/95 p-6 sm:p-7 shadow-2xl backdrop-blur-md md:col-span-1 lg:col-span-4 lg:row-span-3 h-full cursor-pointer hover:border-indigo-500/40 transition-all duration-300"
+          className="group relative flex flex-col justify-between rounded-3xl border border-slate-800/80 bg-slate-900/95 p-5 sm:p-7 lg:p-4.5 xl:p-6 2xl:p-7 shadow-2xl backdrop-blur-md md:col-span-1 lg:col-span-4 lg:row-span-3 h-full cursor-pointer hover:border-indigo-500/40 transition-all duration-300"
         >
-          <div className="space-y-4">
+          <div className="space-y-3.5 sm:space-y-4 lg:space-y-2.5 xl:space-y-3.5 2xl:space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-[11px] font-bold text-indigo-400 tracking-widest uppercase">Services Catalog</div>
-                <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-bold text-white animate-fade-in">Core Capabilities</h3>
+                <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white animate-fade-in">Core Capabilities</h3>
               </div>
               <span className="rounded-full bg-indigo-950/45 text-indigo-405 px-3 py-1 text-[11px] font-bold font-mono border border-indigo-900/30 group-hover:bg-indigo-900 group-hover:text-white transition duration-250">
                 전체보기 ↗
               </span>
             </div>
 
-            <div className="space-y-2.5">
+            <div className="space-y-2 sm:space-y-2.5 lg:space-y-1.5 xl:space-y-2.5 2xl:space-y-3">
               {services.map((item, idx) => (
                 <div
                   key={item.id}
                   onMouseEnter={() => setHoveredService(idx)}
                   onMouseLeave={() => setHoveredService(null)}
-                  className={`rounded-2xl border p-3.5 transition-all duration-200 ${
+                  className={`rounded-2xl border p-3 sm:p-3.5 lg:p-2 xl:p-3 2xl:p-3.5 transition-all duration-200 ${
                     hoveredService === idx 
                       ? "border-indigo-500/50 bg-indigo-950/20 translate-x-1" 
                       : "border-slate-800/40 bg-slate-900/30"
@@ -164,7 +164,7 @@ export function BentoOverview({
                     <span className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-[15px] font-bold text-white group-hover:text-indigo-300 transition duration-150">{item.title}</span>
                     <span className="text-[9px] sm:text-xs font-mono text-cyan-400">{item.tag.split(" ")[0]}</span>
                   </div>
-                  <p className="mt-1 text-[11px] sm:text-xs lg:text-[11px] xl:text-[12px] 2xl:text-[13px] leading-relaxed text-slate-300">
+                  <p className="mt-1 lg:mt-0.5 xl:mt-1 text-[11px] sm:text-xs lg:text-[10.5px] xl:text-[12px] 2xl:text-[13px] leading-relaxed text-slate-300">
                     {item.coreSentence}
                   </p>
                 </div>
@@ -172,18 +172,18 @@ export function BentoOverview({
             </div>
           </div>
           
-          <div className="pt-3 border-t border-slate-800 text-center text-xs text-slate-400 group-hover:text-slate-200 transition">
+          <div className="pt-2 lg:pt-1.5 xl:pt-3 border-t border-slate-800 text-center text-xs text-slate-400 group-hover:text-slate-200 transition">
             Click any service above to read detailed reports
           </div>
         </div>
 
         {/* CARD 4: Step-by-Step Delivery Path */}
-        <div id="bento-card-path" className="relative flex flex-col justify-between rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 shadow-2xl backdrop-blur-md md:col-span-2 lg:col-span-5 lg:row-span-3 h-full">
-          <div className="space-y-4 flex flex-col h-full justify-between">
+        <div id="bento-card-path" className="relative flex flex-col justify-between rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 sm:p-6 lg:p-4.5 xl:p-5 2xl:p-6 shadow-2xl backdrop-blur-md md:col-span-2 lg:col-span-5 lg:row-span-3 h-full">
+          <div className="space-y-3.5 sm:space-y-4 lg:space-y-2.5 xl:space-y-3.5 2xl:space-y-4 flex flex-col h-full justify-between">
             <div className="flex items-center justify-between gap-2">
               <div>
                 <div className="text-[11px] font-bold text-cyan-400 tracking-widest uppercase">Our Framework</div>
-                <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-bold text-white">Unified Delivery Pipeline (UDP)</h3>
+                <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white">Unified Delivery Pipeline (UDP)</h3>
               </div>
               <button 
                 onClick={() => onSwitchToFullView("process")}
@@ -200,25 +200,25 @@ export function BentoOverview({
                   key={idx}
                   onClick={() => setActiveStep(idx)}
                   type="button"
-                  className={`relative rounded-xl border p-2 xs:p-2.5 sm:p-3 lg:p-1.5 xl:p-2.5 2xl:p-3 text-left transition duration-200 focus:outline-none ${
+                  className={`relative rounded-xl border p-1.5 xs:p-2.5 sm:p-3 lg:p-1 xl:p-2.5 2xl:p-3 text-left transition duration-200 focus:outline-none ${
                     activeStep === idx
                       ? "border-cyan-500 bg-cyan-950/30 text-white shadow-lg"
                       : "border-slate-800 bg-slate-900/40 hover:border-slate-700 hover:bg-slate-900/70"
                   }`}
                 >
                   <div className="text-[9px] sm:text-[10px] lg:text-[9px] xl:text-[10px] 2xl:text-[11px] font-bold font-mono text-indigo-400">{step.num}</div>
-                  <div className="mt-1 text-[10px] sm:text-xs lg:text-[10px] xl:text-xs 2xl:text-[13px] font-bold text-white leading-tight truncate">{step.title}</div>
+                  <div className="mt-1 lg:mt-0.5 xl:mt-1 text-[10px] sm:text-xs lg:text-[10px] xl:text-xs 2xl:text-[13px] font-bold text-white leading-tight truncate">{step.title}</div>
                 </button>
               ))}
             </div>
 
             {/* Step Detail display area */}
-            <div className="rounded-xl bg-slate-950/60 border border-slate-800/80 p-4 sm:p-5 flex flex-col justify-between flex-grow mt-2">
-              <div className="space-y-1.5">
+            <div className="rounded-xl bg-slate-950/60 border border-slate-800/80 p-4 sm:p-5 lg:p-2.5 xl:p-4.5 2xl:p-5 flex flex-col justify-between flex-grow mt-2 lg:mt-1.5 xl:mt-2">
+              <div className="space-y-1.5 lg:space-y-0.5 xl:space-y-1.5">
                 <div className="text-[11px] sm:text-xs lg:text-[11px] xl:text-xs 2xl:text-[13px] font-bold text-white">Scope & Activity:</div>
                 <p className="text-xs sm:text-sm lg:text-xs xl:text-[13px] 2xl:text-[14px] leading-relaxed text-slate-300">{steps[activeStep].desc}</p>
               </div>
-              <div className="mt-2 pt-3 border-t border-slate-900/50 flex items-center justify-between gap-1 text-[11px] sm:text-xs">
+              <div className="mt-2 pt-3 lg:pt-1.5 xl:pt-3 border-t border-slate-900/50 flex items-center justify-between gap-1 text-[11px] sm:text-xs">
                 <span className="font-semibold text-[#06b6d4]">{steps[activeStep].tip}</span>
                 <span className="font-mono text-slate-500 hidden sm:inline">Agile SRE</span>
               </div>
@@ -230,24 +230,24 @@ export function BentoOverview({
         <div 
           id="bento-card-labs" 
           onClick={() => onSwitchToFullView("education")}
-          className="group relative flex flex-col justify-between rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 shadow-2xl backdrop-blur-md md:col-span-1 lg:col-span-3 lg:row-span-2 h-full cursor-pointer hover:border-violet-500/40 transition-all duration-300"
+          className="group relative flex flex-col justify-between rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 sm:p-6 lg:p-4.5 xl:p-5 2xl:p-6 shadow-2xl backdrop-blur-md md:col-span-1 lg:col-span-3 lg:row-span-2 h-full cursor-pointer hover:border-violet-500/40 transition-all duration-300"
         >
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4 lg:space-y-2.5 xl:space-y-3.5 2xl:space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-[11px] font-bold text-violet-400 tracking-widest uppercase font-sans">Instructional Lab</div>
-                <h3 className="mt-1 text-base sm:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-white font-sans">Custom Curriculum</h3>
+                <h3 className="mt-1 text-base sm:text-lg lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white font-sans">Custom Curriculum</h3>
               </div>
               <span className="rounded-full bg-violet-950/65 text-violet-450 border border-violet-900/40 px-3 py-1 text-[11px] font-bold font-mono group-hover:bg-violet-900 group-hover:text-white transition duration-250">
                 훈련보기 ↗
               </span>
             </div>
 
-            <div className="space-y-2 flex-grow">
+            <div className="space-y-2 sm:space-y-2.5 lg:space-y-1 xl:space-y-2 flex-grow">
               {curriculumPoints.map((item, idx) => (
-                <div key={idx} className="group rounded-xl bg-slate-950/45 p-2.5 sm:p-3 border border-slate-800/50 hover:border-violet-950/80 transition duration-200">
+                <div key={idx} className="group rounded-xl bg-slate-950/45 p-2.5 sm:p-3 lg:p-1.5 xl:p-2.5 2xl:p-3 border border-slate-800/50 hover:border-violet-950/80 transition duration-200">
                   <div className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-[15px] font-bold text-white group-hover:text-violet-300 transition duration-150">{item.name}</div>
-                  <div className="mt-1 text-[9px] sm:text-xs lg:text-[8px] xl:text-[10px] 2xl:text-xs text-slate-400 leading-none">{item.info}</div>
+                  <div className="mt-1 lg:mt-0 xl:mt-1 text-[9px] sm:text-xs lg:text-[8px] xl:text-[10px] 2xl:text-xs text-slate-400 leading-none">{item.info}</div>
                 </div>
               ))}
             </div>
