@@ -99,7 +99,7 @@ export default function Home() {
                       : "text-slate-500 hover:text-slate-900"
                 }`}
               >
-                Full view
+                Full View
               </button>
             </div>
           </div>

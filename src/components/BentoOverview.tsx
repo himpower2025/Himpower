@@ -144,7 +144,7 @@ export function BentoOverview({
                 <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white animate-fade-in">Core Capabilities</h3>
               </div>
               <span className="rounded-full bg-indigo-950/45 text-indigo-405 px-3 py-1 text-[11px] font-bold font-mono border border-indigo-900/30 group-hover:bg-indigo-900 group-hover:text-white transition duration-250">
-                전체보기 ↗
+                View All ↗
               </span>
             </div>
 
@@ -189,7 +189,7 @@ export function BentoOverview({
                 onClick={() => onSwitchToFullView("process")}
                 className="rounded-full bg-cyan-950/60 text-cyan-400 border border-cyan-900/50 px-3 py-1 text-[11px] font-bold font-mono hover:bg-cyan-900 hover:text-white transition cursor-pointer"
               >
-                상세보기 ↗
+                View Details ↗
               </button>
             </div>
 
@@ -230,24 +230,24 @@ export function BentoOverview({
         <div 
           id="bento-card-labs" 
           onClick={() => onSwitchToFullView("education")}
-          className="group relative flex flex-col justify-between rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 sm:p-6 lg:p-4.5 xl:p-5 2xl:p-6 shadow-2xl backdrop-blur-md md:col-span-1 lg:col-span-3 lg:row-span-2 h-full cursor-pointer hover:border-violet-500/40 transition-all duration-300"
+          className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 sm:p-6 lg:p-3 xl:p-4.5 2xl:p-6 shadow-2xl backdrop-blur-md md:col-span-1 lg:col-span-3 lg:row-span-2 h-full cursor-pointer hover:border-violet-500/40 transition-all duration-300"
         >
-          <div className="space-y-3 sm:space-y-4 lg:space-y-2.5 xl:space-y-3.5 2xl:space-y-4">
+          <div className="space-y-3 sm:space-y-4 lg:space-y-1.5 xl:space-y-3 2xl:space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-[11px] font-bold text-violet-400 tracking-widest uppercase font-sans">Instructional Lab</div>
-                <h3 className="mt-1 text-base sm:text-lg lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white font-sans">Custom Curriculum</h3>
+                <h3 className="mt-0.5 text-base sm:text-lg lg:text-[13px] xl:text-[15px] 2xl:text-xl font-bold text-white font-sans">Custom Curriculum</h3>
               </div>
-              <span className="rounded-full bg-violet-950/65 text-violet-450 border border-violet-900/40 px-3 py-1 text-[11px] font-bold font-mono group-hover:bg-violet-900 group-hover:text-white transition duration-250">
-                훈련보기 ↗
+              <span className="rounded-full bg-violet-950/65 text-violet-400 border border-violet-900/40 px-3 py-1 text-[11px] lg:px-2 lg:py-0.5 lg:text-[9.5px] xl:px-2.5 xl:py-1 xl:text-xs 2xl:px-3 2xl:py-1 text-[11px] font-bold font-mono group-hover:bg-violet-900 group-hover:text-white transition duration-250">
+                View Lab ↗
               </span>
             </div>
 
-            <div className="space-y-2 sm:space-y-2.5 lg:space-y-1 xl:space-y-2 flex-grow">
+            <div className="space-y-1.5 sm:space-y-2.5 lg:space-y-1 xl:space-y-2 flex-grow">
               {curriculumPoints.map((item, idx) => (
-                <div key={idx} className="group rounded-xl bg-slate-950/45 p-2.5 sm:p-3 lg:p-1.5 xl:p-2.5 2xl:p-3 border border-slate-800/50 hover:border-violet-950/80 transition duration-200">
-                  <div className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-[15px] font-bold text-white group-hover:text-violet-300 transition duration-150">{item.name}</div>
-                  <div className="mt-1 lg:mt-0 xl:mt-1 text-[9px] sm:text-xs lg:text-[8px] xl:text-[10px] 2xl:text-xs text-slate-400 leading-none">{item.info}</div>
+                <div key={idx} className="group rounded-xl bg-slate-950/45 p-2 sm:p-3 lg:py-1 lg:px-2.5 xl:p-2.5 2xl:p-3 border border-slate-800/50 hover:border-violet-950/80 transition duration-200">
+                  <div className="text-xs sm:text-sm lg:text-[11px] xl:text-sm 2xl:text-[15px] font-bold text-white group-hover:text-violet-300 transition duration-150">{item.name}</div>
+                  <div className="mt-0.5 lg:mt-0 xl:mt-0.5 text-[9px] sm:text-xs lg:text-[8px] xl:text-[10px] 2xl:text-xs text-slate-400 leading-none">{item.info}</div>
                 </div>
               ))}
             </div>
