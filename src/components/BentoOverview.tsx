@@ -227,14 +227,14 @@ export function BentoOverview({
         </div>
 
         {/* RIGHT COLUMN COMBINED CARD: Instructional Lab & Let's Build Contact */}
-        <div className="col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-3 flex flex-col gap-4 h-full">
+        <div className="col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-3 flex flex-col gap-4 h-auto lg:h-full">
           {/* CARD 5: Learning & Technical Labs */}
           <div 
             id="bento-card-labs" 
             onClick={() => onSwitchToFullView("education")}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 sm:p-6 lg:p-3 xl:p-4.5 2xl:p-6 shadow-2xl backdrop-blur-md h-full lg:h-0 lg:flex-grow cursor-pointer hover:border-violet-500/40 transition-all duration-300"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 sm:p-6 lg:p-3 xl:p-4.5 2xl:p-6 shadow-2xl backdrop-blur-md h-auto lg:h-0 lg:flex-grow cursor-pointer hover:border-violet-500/40 transition-all duration-300"
           >
-            <div className="space-y-3 sm:space-y-4 lg:space-y-1.5 xl:space-y-3 2xl:space-y-4 h-full flex flex-col justify-between">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-1.5 xl:space-y-3 2xl:space-y-4 h-auto lg:h-full flex flex-col justify-between">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-[11px] font-bold text-violet-400 tracking-widest uppercase font-sans">Instructional Lab</div>
@@ -245,11 +245,11 @@ export function BentoOverview({
                 </span>
               </div>
 
-              <div className="flex-grow flex flex-col justify-between gap-1.5 lg:gap-1 xl:gap-2.5 2xl:gap-3">
+              <div className="flex-grow flex flex-col justify-between gap-2.5 lg:gap-1 xl:gap-2.5 2xl:gap-3 mt-3 lg:mt-0">
                 {curriculumPoints.map((item, idx) => (
-                  <div key={idx} className="group rounded-xl bg-slate-950/45 p-2 sm:p-3 lg:py-1 lg:px-2.5 xl:p-2.5 2xl:p-3 border border-slate-800/50 hover:border-violet-950/80 transition duration-200">
+                  <div key={idx} className="group rounded-xl bg-slate-950/45 p-2.5 sm:p-3 lg:py-1 lg:px-2.5 xl:p-2.5 2xl:p-3 border border-slate-800/50 hover:border-violet-950/80 transition duration-200">
                     <div className="text-xs sm:text-sm lg:text-[11px] xl:text-sm 2xl:text-[15px] font-bold text-white group-hover:text-violet-300 transition duration-150">{item.name}</div>
-                    <div className="mt-0.5 lg:mt-0 xl:mt-0.5 text-[9px] sm:text-xs lg:text-[8px] xl:text-[10px] 2xl:text-xs text-slate-400 leading-none">{item.info}</div>
+                    <div className="mt-1 lg:mt-0 xl:mt-0.5 text-[10px] sm:text-xs lg:text-[8px] xl:text-[10px] 2xl:text-xs text-slate-400 leading-normal">{item.info}</div>
                   </div>
                 ))}
               </div>
@@ -260,7 +260,7 @@ export function BentoOverview({
           <div
             id="bento-card-contact"
             onClick={() => setIsContactModalOpen(true)}
-            className="group relative cursor-pointer overflow-hidden rounded-3xl border border-indigo-500/20 bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900/60 p-4 shadow-xl transition-all duration-300 hover:border-indigo-500/50 hover:shadow-indigo-950/20 active:scale-[0.98] flex items-center justify-between col-span-1 h-full lg:h-auto lg:shrink-0"
+            className="group relative cursor-pointer overflow-hidden rounded-3xl border border-indigo-500/20 bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900/60 p-4 shadow-xl transition-all duration-300 hover:border-indigo-500/50 hover:shadow-indigo-950/20 active:scale-[0.98] flex items-center justify-between col-span-1 h-auto lg:h-auto lg:shrink-0"
           >
             <div className="pointer-events-none absolute -right-12 -bottom-12 h-36 w-36 rounded-full bg-indigo-500/10 blur-2xl transition-all duration-500 group-hover:scale-125" />
             
