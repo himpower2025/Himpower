@@ -14,21 +14,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Himpower",
+    default: "Himpower · Websites, Mobile Apps & Developer Training",
     template: "%s · Himpower",
   },
   description:
     "We design, build, and support high-quality websites, mobile apps, and practical developer training courses.",
   metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: "Himpower",
+    title: "Himpower · Websites, Mobile Apps & Developer Training",
     description:
       "We design, build, and support high-quality websites, mobile apps, and practical developer training courses.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Himpower",
+    title: "Himpower · Websites, Mobile Apps & Developer Training",
     description:
       "We design, build, and support high-quality websites, mobile apps, and practical developer training courses.",
   },
