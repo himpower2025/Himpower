@@ -114,19 +114,19 @@ export function ContactForm() {
 
   return (
     <div className="w-full rounded-2xl border border-indigo-100 bg-white p-5 shadow-xl sm:p-8 text-slate-900">
-      <h3 className="text-xl font-semibold text-slate-950">Send us a project brief</h3>
+      <h3 className="text-xl font-semibold text-slate-950">Tell us about your project</h3>
       <p className="mt-1.5 text-xs text-slate-500">
-        Filled details will be securely saved in your Firebase database and sent to us.
+        Fill in your project details below and we will get back to you shortly.
       </p>
 
       {submitStatus === "success" && (
         <div className="mt-6 rounded-xl bg-emerald-50 p-4 border border-emerald-200 text-emerald-800">
-          <p className="text-sm font-semibold">🎉 Proposal Received & Saved!</p>
+          <p className="text-sm font-semibold">🎉 Project Details Saved!</p>
           <p className="mt-1 text-xs leading-5">
-            Thank you for reaching out to Himpower! Your project brief has been stored securely in the Firebase Database.
+            Thank you for reaching out to Himpower! We have securely saved your project information.
           </p>
           <p className="mt-2 text-xs leading-5">
-            We also opened your email composer automatically to send a copy to <strong>himpower2025@gmail.com</strong>. If your browser blocked it, click the button below:
+            We also opened your email app to send a copy directly to our team. If it did not open automatically, please click the button below:
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {mailtoLink && (
@@ -144,7 +144,7 @@ export function ContactForm() {
               }}
               className="rounded-full border border-slate-300 bg-white hover:bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 transition cursor-pointer"
             >
-              Submit another brief
+              Submit another request
             </button>
           </div>
         </div>
@@ -203,11 +203,11 @@ export function ContactForm() {
                 onChange={handleChange}
                 className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
               >
-                <option value="Web & mobile development" className="text-slate-900 bg-white">Web & Mobile Dev</option>
-                <option value="Maintenance & evolution" className="text-slate-900 bg-white">Maintenance & Evolution</option>
-                <option value="Delivery systems" className="text-slate-900 bg-white">Delivery & Operations Systems</option>
-                <option value="Education content" className="text-slate-900 bg-white">Education Content Creation</option>
-                <option value="Other" className="text-slate-900 bg-white">Other Custom Solutions</option>
+                <option value="Web & mobile development" className="text-slate-900 bg-white">Build a Website or Mobile App</option>
+                <option value="Maintenance & evolution" className="text-slate-900 bg-white">Support & Improvements</option>
+                <option value="Delivery systems" className="text-slate-900 bg-white">System & Workflow Automation</option>
+                <option value="Education content" className="text-slate-900 bg-white">Team Training & Courses</option>
+                <option value="Other" className="text-slate-900 bg-white">Other Custom Needs</option>
               </select>
             </div>
           </div>
@@ -242,17 +242,17 @@ export function ContactForm() {
                 onChange={handleChange}
                 className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
               >
-                <option value="Less than 1 month" className="text-slate-900 bg-white">Rapid Prototype (&lt; 1 mo)</option>
-                <option value="1 - 3 months" className="text-slate-900 bg-white">Standard MVP (1 - 3 mos)</option>
-                <option value="3 - 6 months" className="text-slate-900 bg-white">Enterprise Scale (3 - 6 mos)</option>
-                <option value="Ongoing" className="text-slate-900 bg-white">Long Term retainer / Ongoing</option>
+                <option value="Less than 1 month" className="text-slate-900 bg-white">Quick Prototype (less than 1 month)</option>
+                <option value="1 - 3 months" className="text-slate-900 bg-white">Simple Product (1 to 3 months)</option>
+                <option value="3 - 6 months" className="text-slate-900 bg-white">Full Application (3 to 6 months)</option>
+                <option value="Ongoing" className="text-slate-900 bg-white">Long-term Support / Ongoing</option>
               </select>
             </div>
           </div>
 
           <div>
             <label htmlFor="message-textarea" className="block text-xs font-semibold text-slate-700">
-              Project Brief *
+              Tell us about your project *
             </label>
             <textarea
               id="message-textarea"
@@ -261,7 +261,7 @@ export function ContactForm() {
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              placeholder="Tell us about your product goals, targeted users, and features..."
+              placeholder="Describe your project, who it is for, and what you want to achieve..."
               className="mt-1 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-1 focus:ring-indigo-500"
             />
           </div>
@@ -272,7 +272,7 @@ export function ContactForm() {
             disabled={isSubmitting}
             className="w-full mt-2 rounded-full py-3 text-sm font-semibold transition bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white shadow-md disabled:opacity-50"
           >
-            {isSubmitting ? "Sending brief..." : "Submit Proposal Brief"}
+            {isSubmitting ? "Sending..." : "Send Your Project Info"}
           </button>
         </form>
       )}

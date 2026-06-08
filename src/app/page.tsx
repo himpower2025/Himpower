@@ -173,18 +173,14 @@ export default function Home() {
                     <div className="max-w-3xl">
                       <div className="badge inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs">
                         <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400" />
-                        Product engineering studio
+                        Web & Mobile Developers
                       </div>
                       <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-                        Craft{" "}
-                        <span className="text-gradient">web & mobile</span> experiences
-                        that feel ahead of their time.
+                        We build easy-to-use{" "}
+                        <span className="text-gradient">websites & apps</span> that look and work beautifully.
                       </h1>
                       <p className="mt-5 max-w-xl text-pretty text-base leading-7 text-muted sm:text-lg">
-                        We design, build, and maintain digital products—and create
-                        training content that teams actually use. Precision
-                        engineering, thoughtful UX, and a delivery rhythm built for
-                        momentum.
+                        We design, build, and support digital products that people love. We also create simple, practical training guides to help development teams grow. We focus on clean code, gorgeous visuals, and reliable support.
                       </p>
                       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                         <a
@@ -202,10 +198,10 @@ export default function Home() {
                       </div>
                       <div className="mt-8 flex flex-wrap gap-2 text-xs">
                         {[
-                          "Product Engineering",
-                          "Smart Delivery",
-                          "Maintenance",
-                          "Education",
+                          "Websites & Apps",
+                          "Smooth Workflows",
+                          "Ongoing Maintenance",
+                          "Team Training",
                         ].map((tag) => (
                           <span key={tag} className="badge rounded-full px-3 py-1">
                             {tag}
@@ -226,46 +222,46 @@ export default function Home() {
         <section id="services" className="mx-auto max-w-[1400px] px-5 py-12 sm:px-6 sm:py-16">
           <div className="flex items-end justify-between gap-6">
             <div>
-              <div className="text-sm font-medium text-indigo-600">What we do</div>
+              <div className="text-sm font-medium text-indigo-600">Our Core Services</div>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                Engineering, operations, and education—unified.
+                We design, build, support, and train.
               </h2>
             </div>
             <div className="hidden max-w-xs text-sm text-muted sm:block">
-              Not “ship and forget”—ship, learn, and iterate with intention.
+              We stay by your side to support, update, and improve your app as you grow.
             </div>
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Web & mobile development",
-                desc: "From product goals to architecture and implementation. We ship fast with modern stacks like Next.js, React, and Flutter.",
+                title: "Websites & Mobile Apps",
+                desc: "We turn your ideas into functional products. We build fast, modern websites and easy-to-use mobile apps that work beautifully.",
                 accent: "from-indigo-500/10 to-violet-500/5",
               },
               {
-                title: "Maintenance & evolution",
-                desc: "Bug fixes, performance tuning, refactoring, and new features—guided by real usage and operational signals.",
+                title: "Support & Improvements",
+                desc: "We clean up code, improve page speed, fix sudden bugs, and add new features based on how your customers use the app.",
                 accent: "from-cyan-500/10 to-sky-500/5",
               },
               {
-                title: "Delivery systems",
-                desc: "Workflows that raise throughput and consistency—documentation, quality gates, and automation where it matters.",
+                title: "Smooth Workflows",
+                desc: "We set up clear guides, automated testing, and simple templates so your internal team can write software without making mistakes.",
                 accent: "from-violet-500/10 to-fuchsia-500/5",
               },
               {
-                title: "Operational excellence",
-                desc: "Monitoring, incident response, release strategy, and security fundamentals—built for long-term reliability.",
+                title: "Reliable & Secure Systems",
+                desc: "We set up automatic error alerts, check security basics, and handle software releases so your website stays safe and online 24/7.",
                 accent: "from-sky-500/10 to-indigo-500/5",
               },
               {
-                title: "Education content",
-                desc: "Internal training, workshops, and online courses—hands-on curriculum with labs and clear outcomes.",
+                title: "Team Training & Workshops",
+                desc: "We create practical development workshops, simple manuals, and classes to help your software engineers learn real-world web habits.",
                 accent: "from-pink-500/10 to-rose-500/5",
               },
               {
-                title: "MVP → scale-up",
-                desc: "Validate quickly, then grow with confidence—phase-based roadmaps that reduce risk at every step.",
+                title: "Starting Small to Growing Big",
+                desc: "We test your ideas with a simple product first, then scale it up into a larger system as your business grows to reduce financial risk.",
                 accent: "from-emerald-500/10 to-teal-500/5",
               },
             ].map((s) => (
@@ -277,7 +273,7 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-6 text-muted">{s.desc}</p>
                 <div className="mt-6 h-px w-full bg-[var(--border)]" />
                 <div className="mt-4 text-xs text-muted">
-                  Deliverables: specs · code · deployment · ops guide
+                  What you get: Clean Code · Designed Screens · Launch Support · Admin Manual
                 </div>
               </div>
             ))}
@@ -288,13 +284,12 @@ export default function Home() {
           <div className="surface-panel rounded-3xl p-7 sm:p-10">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
               <div className="max-w-xl">
-                <div className="text-sm font-medium text-cyan-600">How we deliver</div>
+                <div className="text-sm font-medium text-cyan-600">Our Simple Way of Working</div>
                 <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                  A process built for speed—and long-term reliability
+                  A process focused on quality, speed, and real-world results
                 </h2>
                 <p className="mt-4 text-sm leading-6 text-muted">
-                  Modern tooling woven into disciplined practice—so teams move
-                  faster without trading away clarity, quality, or maintainability.
+                  We use modern tools and write simple, clear instructions so your projects are completed quickly, work correctly, and are easy to update later.
                 </p>
               </div>
 
@@ -302,23 +297,23 @@ export default function Home() {
                 {[
                   {
                     step: "01",
-                    title: "Discovery",
-                    desc: "Align on goals, users, priorities, and define a clear MVP scope.",
+                    title: "1. Planning",
+                    desc: "We discuss your business ideas, find out who your users are, and prepare a plan for your first simple product.",
                   },
                   {
                     step: "02",
-                    title: "Design & Architecture",
-                    desc: "Design flows and an architecture that stays maintainable as you scale.",
+                    title: "2. Design",
+                    desc: "We design simple, visual screens and an app structure that remains fast as your customers grow.",
                   },
                   {
                     step: "03",
-                    title: "Build",
-                    desc: "Ship in weekly increments with testing and documentation baked in.",
+                    title: "3. Coding",
+                    desc: "We write clean, secure code and test it constantly, sending you working versions every week to review.",
                   },
                   {
                     step: "04",
-                    title: "Operate",
-                    desc: "Set up monitoring, alerting, and an improvement loop to reduce ops burden.",
+                    title: "4. Support & Care",
+                    desc: "We set up automated error detection systems and help you monitor performance so your app runs smoothly.",
                   },
                 ].map((p) => (
                   <div
@@ -340,32 +335,31 @@ export default function Home() {
         <section id="education" className="mx-auto max-w-[1400px] px-5 py-12 sm:px-6 sm:py-16">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
-              <div className="text-sm font-medium text-violet-600">Education</div>
+              <div className="text-sm font-medium text-violet-600">Developer Education</div>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                We build training content like a product.
+                We build easy-to-understand coding courses.
               </h2>
               <p className="mt-4 text-sm leading-6 text-muted">
-                Practical examples, assignments, and evaluation criteria included.
-                Suitable for internal training, institutions, and online courses.
+                Our classes include real-world examples, simple exercises, and clear learning goals. Perfect for company teams or individual developers.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
                 {
-                  title: "Modern engineering practices",
-                  desc: "Tooling and workflows that fit real teams",
+                  title: "Practical Coding Workflows",
+                  desc: "Set up real-world workflows that help teams succeed together.",
                 },
                 {
-                  title: "Web & mobile product engineering",
-                  desc: "Architecture → build → deploy → operate",
+                  title: "Web & Mobile App Building",
+                  desc: "Learn how to build, test, launch, and support complex applications.",
                 },
                 {
-                  title: "Maintenance & refactoring",
-                  desc: "Reliability, testing, performance, quality metrics",
+                  title: "App Support & Maintenance",
+                  desc: "Keep your database secure, code clean, and websites fast for users.",
                 },
                 {
-                  title: "Team-tailored curriculum",
-                  desc: "Skill assessment → roadmap → hands-on labs",
+                  title: "Custom Learning Paths",
+                  desc: "We assess your developers' current skills and design customized, hands-on lessons.",
                 },
               ].map((c) => (
                 <div key={c.title} className="glass shine rounded-2xl p-6">
@@ -387,15 +381,15 @@ export default function Home() {
               <div className="space-y-6">
                 <div>
                   <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                    Turn ideas into products—fast.
+                    Turn your ideas into software—fast.
                   </h2>
                   <p className="mt-4 text-base leading-7 text-muted">
-                    We specialize in high-tempo product design, system maintenance, and customized developer training. Share your project requirements and let&apos;s craft something remarkable together.
+                    We specialize in building modern websites, supporting tech systems, and writing custom developer courses. Share your goals with us, and let&apos;s build something great together.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-100 bg-white/70 p-5 shadow-sm space-y-4">
-                  <h4 className="text-sm font-semibold text-slate-900">Contact Channels</h4>
+                  <h4 className="text-sm font-semibold text-slate-900">Get in touch</h4>
                   <div className="flex items-center gap-3">
                     <a
                       className="btn-primary inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition hover:scale-[1.03]"
@@ -406,7 +400,7 @@ export default function Home() {
                       <MailIcon className="h-5 w-5" />
                     </a>
                     <div>
-                      <span className="block text-xs font-semibold text-slate-800">Email us directly</span>
+                      <span className="block text-xs font-semibold text-slate-800">Email Us Directly</span>
                       <a href="mailto:himpower2025@gmail.com" className="text-xs text-indigo-650 hover:underline">
                         himpower2025@gmail.com
                       </a>
@@ -416,7 +410,7 @@ export default function Home() {
 
                 <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
                   <p className="text-xs text-slate-450 font-medium">
-                    Are you the owner? Open the secure cloud database console to track proposals:
+                    Are you a team operator? Open the project console to track submitted requests:
                   </p>
                   <div>
                     <button
@@ -464,7 +458,7 @@ export default function Home() {
               Himpower
             </div>
             <div className="mt-1 text-xs">
-              Web & mobile engineering · maintenance · education
+              Web & Mobile Apps · Maintenance & Support · Developer Training
             </div>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs">

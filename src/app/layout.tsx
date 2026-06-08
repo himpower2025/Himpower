@@ -18,19 +18,19 @@ export const metadata: Metadata = {
     template: "%s · Himpower",
   },
   description:
-    "A product engineering studio for web & mobile apps, maintenance, and education content.",
+    "We design, build, and support high-quality websites, mobile apps, and practical developer training courses.",
   metadataBase: new URL("https://example.com"),
   openGraph: {
     title: "Himpower",
     description:
-      "A product engineering studio for web & mobile apps, maintenance, and education content.",
+      "We design, build, and support high-quality websites, mobile apps, and practical developer training courses.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Himpower",
     description:
-      "A product engineering studio for web & mobile apps, maintenance, and education content.",
+      "We design, build, and support high-quality websites, mobile apps, and practical developer training courses.",
   },
 };
 

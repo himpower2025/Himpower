@@ -26,62 +26,62 @@ export function BentoOverview({
   const steps = [
     {
       num: "01",
-      title: "Discovery",
-      desc: "Align on business objectives, user profiles, tech constraints, and formulate a clear MVP scope.",
-      tip: "Outcome: Product definition & specs."
+      title: "1. Planning",
+      desc: "We look at your ideas, explain the technical options simply, and plan the first version to launch.",
+      tip: "Outcome: Clear plan & features list."
     },
     {
       num: "02",
-      title: "Architecture",
-      desc: "Architect scalable backend endpoints, database systems, and design intuitive responsive wireframes.",
-      tip: "Outcome: Modular DB & system diagrams."
+      title: "2. Design",
+      desc: "We design beautiful, easy-to-use screens and structure a database that runs fast and securely.",
+      tip: "Outcome: Designed screens & setup plan."
     },
     {
       num: "03",
-      title: "Build",
-      desc: "Build using ultra-fast modern tech stacks with continuous testing, strict quality gates, and weekly reviews.",
-      tip: "Outcome: Fully tested staging builds."
+      title: "3. Building",
+      desc: "We write clean, secure code and test everything thoroughly, sending you weekly progress updates.",
+      tip: "Outcome: A working version you can test."
     },
     {
       num: "04",
-      title: "Operate",
-      desc: "Set up cloud native analytics, error monitoring, server alerts, and keep iterative feature pipelines active.",
-      tip: "Outcome: Reliability & automatic backups."
+      title: "4. Supporting",
+      desc: "We launch your app, check for errors, and make ongoing updates based on what users need.",
+      tip: "Outcome: A live, secure, bug-free system."
     },
   ];
 
   const services = [
     {
       id: 1,
-      title: "Web & Mobile Dev",
-      coreSentence: "Building high-performance Next.js systems and tactile responsive Flutter mobile apps.",
-      tag: "Next.js · Flutter"
+      title: "Websites & Apps",
+      coreSentence: "We build modern, easy-to-use websites and mobile apps that work beautifully on any screen size.",
+      tag: "Websites & Apps"
     },
     {
       id: 2,
-      title: "SLA & Performance",
-      coreSentence: "Continuous speed tuning, database query optimization, and secure backward-compatible code support.",
-      tag: "Tuning · Support"
+      title: "Support & Speed-up",
+      coreSentence: "We fix bugs, make pages load faster, and update your software so it remains secure and optimized.",
+      tag: "Support & Speed"
     },
     {
       id: 3,
-      title: "Smart Delivery Systems",
-      coreSentence: "Deploying automated pipelines, rigorous telemetry coverage, and 0% friction engineering workflows.",
-      tag: "CI/CD · Automation"
+      title: "Smooth Workflows",
+      coreSentence: "We set up automated tools and guidelines so your team can release software updates without errors.",
+      tag: "Work Systems"
     },
     {
       id: 4,
-      title: "Developer Education",
-      coreSentence: "Structured coding manuals and assessment criteria tailored for modern tech teams.",
-      tag: "Curriculum · Labs"
+      title: "Team Training",
+      coreSentence: "We design simple coding lessons and training manuals to help your development team grow.",
+      tag: "Training"
     }
   ];
 
   const curriculumPoints = [
-    { name: "Modern Engineering Workflows", info: "Git patterns + automated CI reviews" },
-    { name: "Full-Stack Development", info: "Next.js App Router + Firebase DB" },
-    { name: "Testing & Clean Architecture", info: "Unit testing + security rules" },
-    { name: "Telemetry & Cloud Monitoring", info: "Error logs mapping + alerts setup" }
+    { name: "Practical Coding Workflows", info: "Simple code-sharing habits and automated checks" },
+    { name: "Full App Development", info: "Modern website building + database basics" },
+    { name: "Testing & Clean Systems", info: "Writing simple tests and setting secure rules" },
+    { name: "Live Alerts & System Support", info: "Keeping track of live page errors automatically" }
   ];
 
   return (
@@ -97,20 +97,20 @@ export function BentoOverview({
           <div className="relative space-y-3 sm:space-y-4 lg:space-y-1.5 xl:space-y-3.5 2xl:space-y-4">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-indigo-900/40 bg-indigo-950/50 px-2.5 py-1 text-xs lg:text-[10px] xl:text-xs 2xl:text-sm text-indigo-400">
               <span className="h-1.5 w-1.5 rounded-full bg-[#06b6d4] animate-pulse" />
-              Product Engineering Studio
+              Web & Mobile Developers
             </div>
             
             <h2 className="text-xl xs:text-2xl sm:text-4xl lg:text-[21px] xl:text-3xl 2xl:text-4xl font-extrabold tracking-tight text-white leading-tight">
-              Craft <span className="bg-gradient-to-r from-indigo-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">experiences</span> that feel ahead of their time.
+              We design and build <span className="bg-gradient-to-r from-indigo-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">websites & mobile apps</span> that work beautifully.
             </h2>
             
             <p className="max-w-3xl text-xs sm:text-sm lg:text-[11px] xl:text-[13px] 2xl:text-base leading-relaxed text-slate-300 font-normal">
-              Himpower designs, develops, and maintains digital platforms—and writes practical education courses that teams actually use. We combine speed, UX elegance, and architectural security to keep products growing.
+              Himpower designs, builds, and maintains high-quality digital products. We also write easy-to-follow coding workshops and courses to help teams learn. We focus on clean visuals, rapid delivery, and reliable support.
             </p>
           </div>
 
           <div className="relative mt-3 lg:mt-2 xl:mt-3.5 2xl:mt-4 flex flex-wrap gap-1.5 sm:gap-2.5 lg:gap-1.5 xl:gap-2 2xl:gap-2.5">
-            {["Next.js Systems", "Mobile", "DB Optimization", "SRE Readiness", "Maintenance"].map((tag) => (
+            {["Websites", "Mobile Apps", "Database Support", "System Monitoring", "Maintenance Support"].map((tag) => (
               <span key={tag} className="rounded-full border border-slate-800 bg-slate-900/70 px-2 py-1 text-[10px] sm:px-3 sm:py-1.5 sm:text-xs lg:px-2 lg:py-1 lg:text-[10px] xl:px-2.5 xl:py-1 xl:text-xs 2xl:px-3 2xl:py-1.5 2xl:text-xs font-semibold text-slate-300 shadow-inner whitespace-nowrap">
                 {tag}
               </span>
@@ -124,9 +124,9 @@ export function BentoOverview({
           
           <div className="relative flex flex-col items-center justify-center">
             <AtomLogo size={125} className="transition-transform hover:scale-105 duration-500 max-h-[140px] max-w-[140px] lg:max-h-[110px] xl:max-h-[140px]" />
-            <h3 className="mt-4 text-base font-bold text-white tracking-tight">Active Engine</h3>
+            <h3 className="mt-4 text-base font-bold text-white tracking-tight">Always Live & Secure</h3>
             <p className="mt-1.5 max-w-[250px] text-xs sm:text-sm lg:text-[11px] xl:text-xs 2xl:text-sm text-slate-300 leading-normal">
-              Continuous delivery, clean telemetry, and modular standards running live.
+              We focus on clean coding standards, tracking errors, and setting up secure systems.
             </p>
           </div>
         </div>
@@ -140,8 +140,8 @@ export function BentoOverview({
           <div className="space-y-3.5 sm:space-y-4 lg:space-y-2.5 xl:space-y-3.5 2xl:space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-[11px] font-bold text-indigo-400 tracking-widest uppercase">Services Catalog</div>
-                <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white animate-fade-in">Core Capabilities</h3>
+                <div className="text-[11px] font-bold text-indigo-400 tracking-widest uppercase">What We Do</div>
+                <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white animate-fade-in">Our Services</h3>
               </div>
               <span className="rounded-full bg-indigo-950/45 text-indigo-405 px-3 py-1 text-[11px] font-bold font-mono border border-indigo-900/30 group-hover:bg-indigo-900 group-hover:text-white transition duration-250">
                 View All ↗
@@ -173,7 +173,7 @@ export function BentoOverview({
           </div>
           
           <div className="pt-2 lg:pt-1.5 xl:pt-3 border-t border-slate-800 text-center text-xs text-slate-400 group-hover:text-slate-200 transition">
-            Click any service above to read detailed reports
+            Click any service above to learn more
           </div>
         </div>
 
@@ -182,8 +182,8 @@ export function BentoOverview({
           <div className="space-y-3.5 sm:space-y-4 lg:space-y-2.5 xl:space-y-3.5 2xl:space-y-4 flex flex-col h-full justify-between">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <div className="text-[11px] font-bold text-cyan-400 tracking-widest uppercase">Our Framework</div>
-                <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white">Unified Delivery Pipeline (UDP)</h3>
+                <div className="text-[11px] font-bold text-cyan-400 tracking-widest uppercase">How We Help You</div>
+                <h3 className="mt-1 text-base sm:text-lg md:text-xl lg:text-[15px] xl:text-lg 2xl:text-xl font-bold text-white">Our Step-by-Step Way of Working</h3>
               </div>
               <button 
                 onClick={() => onSwitchToFullView("process")}
@@ -215,33 +215,33 @@ export function BentoOverview({
             {/* Step Detail display area */}
             <div className="rounded-xl bg-slate-950/60 border border-slate-800/80 p-4 sm:p-5 lg:p-2.5 xl:p-4.5 2xl:p-5 flex flex-col justify-between flex-grow mt-2 lg:mt-1.5 xl:mt-2">
               <div className="space-y-1.5 lg:space-y-0.5 xl:space-y-1.5">
-                <div className="text-[11px] sm:text-xs lg:text-[11px] xl:text-xs 2xl:text-[13px] font-bold text-white">Scope & Activity:</div>
+                <div className="text-[11px] sm:text-xs lg:text-[11px] xl:text-xs 2xl:text-[13px] font-bold text-white">What we focus on:</div>
                 <p className="text-xs sm:text-sm lg:text-xs xl:text-[13px] 2xl:text-[14px] leading-relaxed text-slate-300">{steps[activeStep].desc}</p>
               </div>
               <div className="mt-2 pt-3 lg:pt-1.5 xl:pt-3 border-t border-slate-900/50 flex items-center justify-between gap-1 text-[11px] sm:text-xs">
                 <span className="font-semibold text-[#06b6d4]">{steps[activeStep].tip}</span>
-                <span className="font-mono text-slate-500 hidden sm:inline">Agile SRE</span>
+                <span className="font-mono text-slate-500 hidden sm:inline">Reliability</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* RIGHT COLUMN COMBINED CARD: Instructional Lab & Let's Build Contact */}
-        <div className="col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-3 flex flex-col gap-4 h-auto lg:h-full">
+        <div className="col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-3 flex flex-col gap-4 h-auto bento-labs-parent-height">
           {/* CARD 5: Learning & Technical Labs */}
           <div 
             id="bento-card-labs" 
             onClick={() => onSwitchToFullView("education")}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 sm:p-6 lg:p-3 xl:p-4.5 2xl:p-6 shadow-2xl backdrop-blur-md h-auto lg:h-0 lg:flex-grow cursor-pointer hover:border-violet-500/40 transition-all duration-300"
+            className="group relative flex flex-col justify-between overflow-y-auto rounded-3xl border border-indigo-950/40 bg-slate-900/90 p-5 sm:p-6 lg:p-3 xl:p-4.5 2xl:p-6 shadow-2xl backdrop-blur-md h-auto bento-labs-card-height cursor-pointer hover:border-violet-500/40 transition-all duration-300 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-violet-950/50 [&::-webkit-scrollbar-track]:bg-transparent"
           >
             <div className="space-y-3 sm:space-y-4 lg:space-y-1.5 xl:space-y-3 2xl:space-y-4 h-auto lg:h-full flex flex-col justify-between">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-[11px] font-bold text-violet-400 tracking-widest uppercase font-sans">Instructional Lab</div>
-                  <h3 className="mt-0.5 text-base sm:text-lg lg:text-[13px] xl:text-[15px] 2xl:text-xl font-bold text-white font-sans">Custom Curriculum</h3>
+                  <div className="text-[11px] font-bold text-violet-400 tracking-widest uppercase font-sans">Training & Lessons</div>
+                  <h3 className="mt-0.5 text-base sm:text-lg lg:text-[13px] xl:text-[15px] 2xl:text-xl font-bold text-white font-sans">Course Lessons</h3>
                 </div>
                 <span className="rounded-full bg-violet-950/65 text-violet-400 border border-violet-900/40 px-3 py-1 text-[11px] lg:px-2 lg:py-0.5 lg:text-[9.5px] xl:px-2.5 xl:py-1 xl:text-xs 2xl:px-3 2xl:py-1 text-[11px] font-bold font-mono group-hover:bg-violet-900 group-hover:text-white transition duration-250">
-                  View Lab ↗
+                  Learn More ↗
                 </span>
               </div>
 
@@ -273,12 +273,12 @@ export function BentoOverview({
                   Let&apos;s build together
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 </h4>
-                <p className="text-xs text-slate-400">Send us a project brief</p>
+                <p className="text-xs text-slate-400">Send us a message about your project</p>
               </div>
             </div>
             
             <span className="rounded-full bg-indigo-600/20 group-hover:bg-indigo-650 border border-indigo-500/30 px-3.5 py-1.5 text-xs font-semibold text-white transition-all duration-300 shadow-sm whitespace-nowrap">
-              Start Brief
+              Contact Us
             </span>
           </div>
         </div>
@@ -288,8 +288,8 @@ export function BentoOverview({
       {/* Switching bottom inline container - slim and high-density */}
       <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-2xl border border-slate-900/90 bg-slate-950/40 px-6 py-4 text-center sm:text-left">
         <div className="space-y-0.5">
-          <h4 className="text-sm sm:text-base font-semibold text-white">Looking for the original scrolling view with detailed reports?</h4>
-          <p className="text-xs sm:text-sm text-slate-400">Switch to the traditional vertical presentation format anywhere at your convenience.</p>
+          <h4 className="text-sm sm:text-base font-semibold text-white">Would you like to read our detailed full service page?</h4>
+          <p className="text-xs sm:text-sm text-slate-400">Convert the dashboard view into a traditional scrolling list format with a single click.</p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2.5">
           <button
@@ -308,7 +308,7 @@ export function BentoOverview({
             type="button"
             className="rounded-full bg-indigo-600 hover:bg-indigo-700 px-5 py-2 text-xs font-bold text-white transition shadow-md shadow-indigo-600/10 shrink-0 cursor-pointer"
           >
-            View Full Scroll Page
+            View Full Text Page
           </button>
         </div>
       </div>
