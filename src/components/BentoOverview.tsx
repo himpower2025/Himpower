@@ -90,28 +90,28 @@ export function BentoOverview({
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12 auto-rows-auto bento-grid-fluid">
         
         {/* CARD 1: Brand & Value Proposition (Hero representation) */}
-        <div id="bento-card-hero" className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-indigo-950/40 bg-slate-950/80 p-5 sm:p-6 md:p-8 lg:p-4.5 xl:p-6 2xl:p-8 shadow-2xl backdrop-blur-md md:col-span-2 lg:col-span-8 lg:row-span-2 h-full">
+        <div id="bento-card-hero" className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-indigo-950/40 bg-slate-950/80 p-6 sm:p-8 lg:p-6 xl:p-8 2xl:p-10 shadow-2xl backdrop-blur-md md:col-span-2 lg:col-span-8 lg:row-span-2 h-full">
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
           <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
           
-          <div className="relative space-y-3 sm:space-y-4 lg:space-y-1.5 xl:space-y-3.5 2xl:space-y-4">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-indigo-900/40 bg-indigo-950/50 px-2.5 py-1 text-xs lg:text-[10px] xl:text-xs 2xl:text-sm text-indigo-400">
+          <div className="relative space-y-4 sm:space-y-5 lg:space-y-4 xl:space-y-5 2xl:space-y-6">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-indigo-900/40 bg-indigo-950/50 px-2.5 py-1 text-xs xl:text-xs 2xl:text-sm text-indigo-400 w-fit">
               <span className="h-1.5 w-1.5 rounded-full bg-[#06b6d4] animate-pulse" />
               Web & Mobile Developers
             </div>
             
-            <h2 className="text-2xl xs:text-3xl sm:text-5xl lg:text-[24px] xl:text-4xl 2xl:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold tracking-tight text-white leading-tight">
               We design and build <span className="bg-gradient-to-r from-indigo-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">custom software</span>.
             </h2>
             
-            <p className="max-w-3xl text-sm sm:text-base lg:text-[13px] xl:text-[15px] 2xl:text-lg leading-relaxed text-slate-200 font-normal">
+            <p className="max-w-3xl text-sm sm:text-base lg:text-[14px] xl:text-[15px] 2xl:text-lg leading-relaxed text-slate-200 font-normal">
               Himpower is a professional team that <strong className="text-white font-semibold">builds custom websites, mobile apps</strong>, and provides <strong className="text-white font-semibold">practical developer training</strong>. We make complex technology simple, fast, and completely secure.
             </p>
           </div>
 
-          <div className="relative mt-3 lg:mt-2 xl:mt-3.5 2xl:mt-4 flex flex-wrap gap-1.5 sm:gap-2.5 lg:gap-1.5 xl:gap-2 2xl:gap-2.5">
+          <div className="relative mt-4 lg:mt-6 flex flex-wrap gap-2 sm:gap-2.5">
             {["Websites", "Mobile Apps", "Database Support", "System Monitoring", "Maintenance Support"].map((tag) => (
-              <span key={tag} className="rounded-full border border-slate-800 bg-slate-900/70 px-2 py-1 text-[10px] sm:px-3 sm:py-1.5 sm:text-xs lg:px-2 lg:py-1 lg:text-[10px] xl:px-2.5 xl:py-1 xl:text-xs 2xl:px-3 2xl:py-1.5 2xl:text-xs font-semibold text-slate-300 shadow-inner whitespace-nowrap">
+              <span key={tag} className="rounded-full border border-slate-800 bg-slate-900/70 px-2.5 py-1 text-[10px] sm:px-3 sm:py-1.5 sm:text-xs font-semibold text-slate-300 shadow-inner whitespace-nowrap">
                 {tag}
               </span>
             ))}

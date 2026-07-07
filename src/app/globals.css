@@ -57,14 +57,25 @@ body {
 }
 
 /* Fluid responsive Bento layout configuration optimized for standard laptops, 16-inch screens, and large displays */
-@media (min-width: 1024px) and (min-height: 750px) {
+@media (min-width: 1024px) {
   .bento-grid-fluid {
     display: grid !important;
     grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
-    grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
-    height: calc(100vh - 150px) !important;
-    min-height: 680px !important;
-    max-height: 880px !important;
+    grid-auto-rows: minmax(120px, auto) !important;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+  }
+  .bento-labs-card-height {
+    height: auto !important;
+    min-height: 230px !important;
+    flex-grow: 1 !important;
+  }
+  .bento-labs-parent-height {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
 }
 
