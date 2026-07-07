@@ -27,53 +27,53 @@ export function BentoOverview({
     {
       num: "01",
       title: "1. Planning",
-      desc: "We look at your ideas, explain the technical options simply, and plan the first version to launch.",
-      tip: "Outcome: Clear plan & features list."
+      desc: "We plan a simple, fast-to-launch product scope based on your business ideas.",
+      tip: "Outcome: Clear project roadmap."
     },
     {
       num: "02",
       title: "2. Design",
-      desc: "We design beautiful, easy-to-use screens and structure a database that runs fast and securely.",
-      tip: "Outcome: Designed screens & setup plan."
+      desc: "We design easy-to-use screens and structure a secure, fast-running database.",
+      tip: "Outcome: Visual designs & DB plan."
     },
     {
       num: "03",
       title: "3. Building",
-      desc: "We write clean, secure code and test everything thoroughly, sending you weekly progress updates.",
-      tip: "Outcome: A working version you can test."
+      desc: "We write clean code, perform deep testing, and send you weekly progress updates.",
+      tip: "Outcome: A working, testable app."
     },
     {
       num: "04",
       title: "4. Supporting",
-      desc: "We launch your app, check for errors, and make ongoing updates based on what users need.",
-      tip: "Outcome: A live, secure, bug-free system."
+      desc: "We launch your app, monitor live errors, and release ongoing updates.",
+      tip: "Outcome: Live, safe, and bug-free system."
     },
   ];
 
   const services = [
     {
       id: 1,
-      title: "Websites & Apps",
-      coreSentence: "We build modern, easy-to-use websites and mobile apps that work beautifully on any screen size.",
-      tag: "Websites & Apps"
+      title: "1. Build Websites & Apps",
+      coreSentence: "We design and build custom web and mobile systems tailored to your business.",
+      tag: "Build"
     },
     {
       id: 2,
-      title: "Support & Speed-up",
-      coreSentence: "We fix bugs, make pages load faster, and update your software so it remains secure and optimized.",
-      tag: "Support & Speed"
+      title: "2. Maintenance & Support",
+      coreSentence: "We fix bugs, optimize performance, and keep your software secure.",
+      tag: "Support"
     },
     {
       id: 3,
-      title: "Smooth Workflows",
-      coreSentence: "We set up automated tools and guidelines so your team can release software updates without errors.",
-      tag: "Work Systems"
+      title: "3. System Automation",
+      coreSentence: "We automate manual setups to prevent code errors and speed up work.",
+      tag: "Automate"
     },
     {
       id: 4,
-      title: "Team Training",
-      coreSentence: "We design simple coding lessons and training manuals to help your development team grow.",
-      tag: "Training"
+      title: "4. Practical Team Training",
+      coreSentence: "We design simple, hands-on lessons to train your engineering teams.",
+      tag: "Train"
     }
   ];
 
@@ -100,12 +100,12 @@ export function BentoOverview({
               Web & Mobile Developers
             </div>
             
-            <h2 className="text-xl xs:text-2xl sm:text-4xl lg:text-[21px] xl:text-3xl 2xl:text-4xl font-extrabold tracking-tight text-white leading-tight">
-              We design and build <span className="bg-gradient-to-r from-indigo-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">websites & mobile apps</span> that work beautifully.
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl lg:text-[24px] xl:text-4xl 2xl:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              We design and build <span className="bg-gradient-to-r from-indigo-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">custom software</span>.
             </h2>
             
-            <p className="max-w-3xl text-xs sm:text-sm lg:text-[11px] xl:text-[13px] 2xl:text-base leading-relaxed text-slate-300 font-normal">
-              Himpower designs, builds, and maintains high-quality digital products. We also write easy-to-follow coding workshops and courses to help teams learn. We focus on clean visuals, rapid delivery, and reliable support.
+            <p className="max-w-3xl text-sm sm:text-base lg:text-[13px] xl:text-[15px] 2xl:text-lg leading-relaxed text-slate-200 font-normal">
+              Himpower is a professional team that <strong className="text-white font-semibold">builds custom websites, mobile apps</strong>, and provides <strong className="text-white font-semibold">practical developer training</strong>. We make complex technology simple, fast, and completely secure.
             </p>
           </div>
 
@@ -124,9 +124,9 @@ export function BentoOverview({
           
           <div className="relative flex flex-col items-center justify-center">
             <AtomLogo size={125} className="transition-transform hover:scale-105 duration-500 max-h-[140px] max-w-[140px] lg:max-h-[110px] xl:max-h-[140px]" />
-            <h3 className="mt-4 text-base font-bold text-white tracking-tight">Always Live & Secure</h3>
-            <p className="mt-1.5 max-w-[250px] text-xs sm:text-sm lg:text-[11px] xl:text-xs 2xl:text-sm text-slate-300 leading-normal">
-              We focus on clean coding standards, tracking errors, and setting up secure systems.
+            <h3 className="mt-4 text-lg font-bold text-white tracking-tight">Reliable System Support</h3>
+            <p className="mt-1.5 max-w-[250px] text-xs sm:text-sm lg:text-[12px] xl:text-[13px] 2xl:text-sm text-slate-300 leading-normal">
+              We keep your software <strong className="text-white font-semibold">bug-free, secure</strong>, and running smoothly 24/7.
             </p>
           </div>
         </div>
